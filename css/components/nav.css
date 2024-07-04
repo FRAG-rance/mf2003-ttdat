@@ -1,0 +1,29 @@
+
+nav {
+    margin-top: 5rem;
+    width: 15rem;
+    height: calc(100%-5);
+    background-color: #13191C;
+}
+
+#sidebarNav {
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.nav-item {
+    padding: 1rem;
+}
+.nav-item .flex{
+    align-items: center;
+}
+.nav-list-text {
+    margin-left: 1rem;
+    text-align: center;
+    color: white;
+}
+
+.accordion {
+    align-items: center;
+}

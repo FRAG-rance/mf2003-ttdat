@@ -1,0 +1,45 @@
+header {
+    height: 3rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #DFE5E8;
+    padding: 1rem;
+}
+
+#sidebarToggleTop {
+    background-color: #DFE5E8;
+}
+
+.left-header { 
+    align-items: center;
+}
+
+#logo {
+    width: 10rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+}
+
+
+.img-profile{  
+    width: 3rem;
+    height: 3rem;
+    margin-left: 1rem;
+}
+
+#header {
+    align-items:center;
+    justify-content: space-between;   
+}
+
+#userDropdown {
+    align-items: center;
+    margin: 3rem;
+}
+
+.profile-name {
+    color: black;
+}

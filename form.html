@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin nhân viên</title>
+    <link rel="stylesheet" href="/css/pages/form.css">
+
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Thông tin nhân viên</h2>
+            <button class="close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <form>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="ma-nhan-vien">Mã nhân viên *</label>
+                    <input type="text" id="ma-nhan-vien" required autofocus>
+                </div>
+                <div class="form-col">
+                    <label for="ho-va-ten">Họ và tên *</label>
+                    <input type="text" id="ho-va-ten" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="ngay-sinh">Ngày sinh</label>
+                    <input type="date" id="ngay-sinh">
+                </div>
+                <div class="form-col">
+                    <label>Giới tính</label>
+                    <div class="radio-group">
+                        <label><input class="radio-group-label" type="radio" name="gender" value="nam"> Nam</label>
+                        <label><input class="radio-group-label" type="radio" name="gender" value="nu"> Nữ</label>
+                        <label><input class="radio-group-label" type="radio" name="gender" value="khac"> Khác</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="vi-tri">Vị trí</label>
+                    <select id="vi-tri">
+                        <option value="">Chọn vị trí</option>
+                    </select>
+                </div>
+                <div class="form-col">
+                    <label for="so-cmtnd">Số CMTND</label>
+                    <input type="text" id="so-cmtnd">
+                </div>
+                <div class="form-col">
+                    <label for="ngay-cap">Ngày cấp</label>
+                    <input type="date" id="ngay-cap">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="phong-ban">Phòng ban</label>
+                    <select id="phong-ban">
+                        <option value="">Chọn phòng ban</option>
+                    </select>
+                </div>
+                <div class="form-col">
+                    <label for="noi-cap">Nơi cấp</label>
+                    <input type="text" id="noi-cap">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="dia-chi">Địa chỉ</label>
+                    <input type="text" id="dia-chi">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="dt-di-dong">ĐT Di động</label>
+                    <input type="text" id="dt-di-dong">
+                </div>
+                <div class="form-col">
+                    <label for="dt-co-dinh">ĐT Cố định</label>
+                    <input type="text" id="dt-co-dinh">
+                </div>
+                <div class="form-col">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-col">
+                    <label for="tai-khoan-ngan-hang">Tài khoản ngân hàng</label>
+                    <input type="text" id="tai-khoan-ngan-hang">
+                </div>
+                <div class="form-col">
+                    <label for="ten-ngan-hang">Tên ngân hàng</label>
+                    <input type="text" id="ten-ngan-hang">
+                </div>
+                <div class="form-col">
+                    <label for="chi-nhanh">Chi nhánh</label>
+                    <input type="text" id="chi-nhanh">
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="button" class="pri-btn btn-cancel">Hủy</button>
+                <button type="submit" class="pri-btn btn-save">Cất</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
