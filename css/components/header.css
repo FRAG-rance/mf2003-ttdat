@@ -12,10 +12,6 @@ header {
     background-color: #DFE5E8;
 }
 
-.left-header { 
-    align-items: center;
-}
-
 #logo {
     width: 10rem;
     margin-left: 2rem;
@@ -31,12 +27,10 @@ header {
 }
 
 #header {
-    align-items:center;
     justify-content: space-between;   
 }
 
 #userDropdown {
-    align-items: center;
     margin: 3rem;
 }
 

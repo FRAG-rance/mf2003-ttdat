@@ -4,23 +4,14 @@ main {
     padding: 5rem;
 }
 
-.container {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-}
 #content-toolbar {
     margin-top: 0;
     justify-content: space-between;
-    align-items: center;
 }
 #table-add-button {
     line-height: 0;
     width: 10rem;
     cursor: pointer;
-    align-items: center;
-    justify-content: center;
     margin-right: 0;
 }
 .search-bar {
@@ -44,28 +35,10 @@ main {
     cursor: pointer;
     width: 3rem;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th, td {
-    text-align: left;
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
-}
-th {
-    background-color: #f8f9fa;
-}
-tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-tr:hover {
-    background-color: #e9ecef;
-}
+
 .pagination {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-top: 20px;
 }
 .pagination select {
@@ -81,14 +54,9 @@ tr:hover {
     cursor: pointer;
 }
 
-.left-pagination {
-    align-items: center;
-}
-
 .table-action {
     visibility: hidden;
     position: absolute;
-    align-items: center;
     height: 43px;
     right: 10rem;
     padding: 0;

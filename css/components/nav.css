@@ -15,15 +15,9 @@ nav {
 .nav-item {
     padding: 1rem;
 }
-.nav-item .flex{
-    align-items: center;
-}
+
 .nav-list-text {
     margin-left: 1rem;
     text-align: center;
     color: white;
-}
-
-.accordion {
-    align-items: center;
 }

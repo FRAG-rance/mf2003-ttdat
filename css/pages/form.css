@@ -4,9 +4,13 @@
 @import url(../components/header.css);
 @import url(../components/nav.css);
 @import url(../components/content.css);
+@import url(../layout/grid.css);
+@import url(../layout/flex.css);
 
 label {
-    margin: 24px 24px 5px 0;
+    display: block;
+    margin: 1rem 1rem 0.5rem 0;
+    font-weight: bold;
 }
 
 .icon {
@@ -25,15 +29,15 @@ body {
 }
 .form-container {
     background-color: white;
-    padding: 20px;
+    padding: 1rem;
     border-radius: 8px;
-    width: 600px;
+    width: 40rem;
 }
 .form-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 1rem;
 }
 .form-header h2 {
     margin: 0;
@@ -41,28 +45,13 @@ body {
 .close-btn {
     background: none;
     border: none;
-    font-size: 20px;
     cursor: pointer;
     color: #888;
 }
-.form-row {
-    display: flex;
-    margin-bottom: 15px;
-}
-.form-col {
-    flex: 1;
-    margin-right: 15px;
-}
-.form-col:last-child {
-    margin-right: 0;
-}
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+
 input[type="text"],
 input[type="date"],
+input[type="email"],
 select {
     width: 100%;
     padding: 8px;
