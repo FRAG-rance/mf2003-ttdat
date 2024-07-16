@@ -5,9 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MISA</title>
     <link rel="stylesheet" href="/css/pages/main.css">
+    <link rel="stylesheet" href="/css/pages/form.css">
 </head>
 <body>
-    <header class="flex ai-center" id="header">
+    
+    <div class="form-container hidden">
+        <div class="flex jc-sb px-1">
+            <h2>Thông tin nhân viên</h2>
+            <button class="close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <form>
+            <div class="grid">
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-Id">Mã nhân viên *</label>
+                        <input type="text" id="employee-Id" required autofocus>
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-name">Họ và tên *</label>
+                        <input type="text" id="employee-name" required>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-birthdate">Ngày sinh</label>
+                        <input type="date" id="employee-birthdate">
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label>Giới tính</label>
+                        <div class="radio-group">
+                            <label><input class="radio-group-label" type="radio" name="gender" value="nam"> Nam</label>
+                            <label><input class="radio-group-label" type="radio" name="gender" value="nu"> Nữ</label>
+                            <label><input class="radio-group-label" type="radio" name="gender" value="khac"> Khác</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-position" >Vị trí</label>
+                        <select id="employee-position" >
+                            <option value="">Chọn vị trí</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-socials">Số CMTND</label>
+                        <input type="text" id="employee-socials">
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-sDate">Ngày cấp</label>
+                        <input type="date" id="employee-sDate">
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-dept">Phòng ban</label>
+                        <select id="employee-dept">
+                            <option value="">Chọn phòng ban</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-sPlace">Nơi cấp</label>
+                        <input type="text" id="employee-sPlace">
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1">
+                    <div class="px-1">
+                        <label for="employee-address">Địa chỉ</label>
+                        <input type="text" id="employee-address">
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-4">
+                    <div class="px-1">
+                        <label for="employee-phoneNo">ĐT Di động</label>
+                        <input type="text" id="employee-phoneNo">
+                    </div>
+                </div>
+                <div class="grid-u-1-4">
+                    <div class="px-1">
+                        <label for="employee-landlineNo">ĐT Cố định</label>
+                        <input type="text" id="employee-landlineNo">
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-bankAcc">Tài khoản ngân hàng</label>
+                        <input type="text" id="employee-bankAcc">
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-bankName">Tên ngân hàng</label>
+                        <input type="text" id="employee-bankName">
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-bankBranch">Chi nhánh</label>
+                        <input type="text" id="employee-bankBranch">
+                    </div>
+                </div>
+            </div>
+            <div class="button-group px-1">
+                <button type="button" class="pri-btn btn-cancel">Hủy</button>
+                <button type="submit" class="pri-btn btn-save">Cất</button>
+            </div>
+        </form>
+    </div>
+
+    <header class="flex ai-center hidden" id="header">
         <div class="flex ai-center">
             <button id="sidebarToggleTop" class="">
                 <a href="#">
@@ -33,6 +168,9 @@
             </div>
         </div>
     </header>
+
+
+    
     <div class="flex">
         <nav class="flex" id="sidebarNav">
             <ul>
@@ -113,7 +251,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action ai-center">
+                                <td class="flex table-action hidden ai-center">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -133,7 +271,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -153,7 +291,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -173,7 +311,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -193,7 +331,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -213,7 +351,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -233,7 +371,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -253,7 +391,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -273,7 +411,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -293,7 +431,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -313,7 +451,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -333,7 +471,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -353,7 +491,7 @@
                                 <td>02/08/1954</td>
                                 <td>kthkuizh3830@nowhere.com</td>
                                 <td>104 nhà K, ngõ 72 Lĩnh Nam</td>
-                                <td class="flex table-action">
+                                <td class="flex table-action hidden">
                                     <a href="#">
                                         <img src="./assets/icon/add.png" alt="" class="icon">
                                     </a>
@@ -368,6 +506,8 @@
                         </tbody>
                     </table>
                 </div>
+
+                
                 <div class="pagination ai-center">
                     <span>Tổng: 100</span>
                     <div class="left-pagination flex ai-center">
@@ -386,7 +526,9 @@
                     
                 </div>
             </div>
+            
         </main>
     </div>
+    <script src="./js/employees/employees.js"></script>
 </body>
 </html>

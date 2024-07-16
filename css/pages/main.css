@@ -14,6 +14,10 @@
     text-decoration: none;
 }
 
+body {
+    position: relative;
+}
+
 .icon {
     width: 2rem;
     height: 2rem;
@@ -29,6 +33,10 @@
 li {
     color: white;
     text-decoration: none;
+}
+
+.hidden { 
+    display: none;
 }
 
 
