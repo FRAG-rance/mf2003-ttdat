@@ -41,6 +41,27 @@ window.onload = function () {
         console.error(error);
       }
     }
-    loadData() {}
+    loadData() {
+        try {
+            fetch('https://cukcuk.manhnv.net/api/v1/Employees').then(res => res.json()).then(data => {
+                console.log(data);
+                let table = document.querySelector('#tableEmp');
+                for (const item of data) {
+                    let tr = document.createElement('tr');
+                    tr.innerHTML = `<td>15</td>
+                                    <td>${item.EmployeeCode}</td>
+                                    <td>${item.FullName}</td>
+                                    <td>${item.Gender == 1 ? 'Nam' : 'Nữ'}</td>
+                                    <td>${item.DateOfBirth}</td>
+                                    <td>${item.Email}</td>
+                                    <td>${item.Address}</td>`
+                                    ;
+                    table.querySelector('tbody').append(tr);
+                }
+            })
+        } catch(error) {
+            console.log(error);
+        }
+    }
   
   }
