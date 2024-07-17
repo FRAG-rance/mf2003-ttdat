@@ -9,6 +9,7 @@ main {
     justify-content: space-between;
 }
 #table-add-button {
+    margin: 1rem;
     line-height: 0;
     width: 10rem;
     cursor: pointer;

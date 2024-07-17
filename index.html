@@ -9,10 +9,40 @@
 </head>
 <body>
     
+    <div class="del-confirmation dialog hidden">
+        <div class="flex jc-sb">
+            <h2>Thông tin nhân viên</h2>
+            <button class="dialog-close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <div class="confirmation-text">
+            <p>Bạn có chắc chắn muốn xoá dữ liệu nhân viên không?</p>
+        </div>
+        <div class="flex jc-fe">
+            <button class="yes-dialog-btn pri-btn">Có</button>
+            <button class="no-dialog-btn pri-btn">Không</button>
+        </div>
+    </div>
+
+    <div class="error dialog hidden">
+        <div class="flex jc-sb">
+            <h2>Lỗi!!!</h2>
+            <button class="dialog-close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <div class="error-message">
+        </div>
+        <div class="flex jc-fe">
+            <button class="pri-btn">OK</button>
+        </div>
+    </div>
+    
     <div class="form-container hidden">
         <div class="flex jc-sb px-1">
             <h2>Thông tin nhân viên</h2>
-            <button class="close-btn">
+            <button class="form-close-btn">
                 <img src="./assets/icon/close-48.png" alt="" class="icon">
             </button>
         </div>
@@ -21,7 +51,7 @@
                 <div class="grid-u-1-2">
                     <div class="px-1">
                         <label for="employee-Id">Mã nhân viên *</label>
-                        <input type="text" id="employee-Id" required autofocus>
+                        <input type="text" id="employee-Id" required>
                     </div>
                 </div>
                 <div class="grid-u-1-2">
@@ -60,8 +90,8 @@
                 </div>
                 <div class="grid-u-1-3">
                     <div class="px-1">
-                        <label for="employee-socials">Số CMTND</label>
-                        <input type="text" id="employee-socials">
+                        <label for="employee-socials">Số CMTND *</label>
+                        <input type="text" id="employee-socials" required>
                     </div>
                 </div>
                 <div class="grid-u-1-3">
@@ -98,8 +128,8 @@
             <div class="grid">
                 <div class="grid-u-1-4">
                     <div class="px-1">
-                        <label for="employee-phoneNo">ĐT Di động</label>
-                        <input type="text" id="employee-phoneNo">
+                        <label for="employee-phoneNo">ĐT Di động *</label>
+                        <input type="text" id="employee-phoneNo" required>
                     </div>
                 </div>
                 <div class="grid-u-1-4">
@@ -111,7 +141,7 @@
                 <div class="grid-u-1-2">
                     <div class="px-1">
                         <label for="email">Email</label>
-                        <input type="email" id="email">
+                        <input type="email" id="email" required>
                     </div>
                 </div>
             </div>
@@ -137,7 +167,7 @@
             </div>
             <div class="button-group px-1">
                 <button type="button" class="pri-btn btn-cancel">Hủy</button>
-                <button type="submit" class="pri-btn btn-save">Cất</button>
+                <button type="submit" class="pri-btn btn-save">Lưu</button>
             </div>
         </form>
     </div>

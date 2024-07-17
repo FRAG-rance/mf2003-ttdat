@@ -6,6 +6,10 @@
     flex-direction: row;
 }
 
+.jc-fe {
+    justify-content: flex-end;
+}
+
 .jc-sa {
     justify-content: space-around;
 }

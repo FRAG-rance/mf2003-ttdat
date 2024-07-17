@@ -1,0 +1,35 @@
+.dialog {
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    padding: 2rem;
+    position: absolute;
+    margin: 20rem auto;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background-color: white;
+}
+
+.error.dialog {
+    width: 25rem;
+}
+
+.del-confirmation.dialog {
+    width: 20rem;
+}
+
+.confirmation-text {
+    margin: 1rem 0;
+}
+
+.no-dialog-btn {
+    margin-left: 1rem;
+}
+
+.dialog-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #888;
+}

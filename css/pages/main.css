@@ -3,10 +3,10 @@
 @import url(../components/dropdown.css);
 @import url(../components/header.css);
 @import url(../components/nav.css);
+@import url(../components/dialog.css);
 @import url(../components/content.css);
 @import url(../layout/flex.css);
 @import url(../layout/table.css);
-
 * {
     border: 0;
     padding: 0;
@@ -31,7 +31,6 @@ body {
 }
 
 li {
-    color: white;
     text-decoration: none;
 }
 

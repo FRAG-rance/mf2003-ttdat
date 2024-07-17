@@ -1,111 +1,60 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #myTable {
-        overflow: hidden;
-        position: relative;
+        .flex {
+            display: flex;
         }
 
-        .controls-cell {
-        position: relative;
+        .row {
+            flex-direction: row;
         }
 
-        .control-buttons {
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        display: none;
-        background-color: white;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
+        .jc-sa {
+            justify-content: space-around;
         }
 
-        .control-buttons button {
-        margin: 0 2px;
+        .jc-sb {
+            justify-content: space-between;
+        }
+
+        .jc-se {
+            justify-content: space-evenly;
+        }
+
+        .ai-center {
+            align-items: center;
+        }
+        .px-1{
+            padding: 0 1rem 0 1rem;
+        }
+        .confirmation-dialog {
+            width: 20rem;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            padding: 2rem;
         }
     </style>
-  </head>
-  <body>
-    <table id="myTable">
-        <tbody>
-          <tr>
-            <td>Content</td>
-            <td>Content</td>
-            <!-- ... other cells ... -->
-            <td class="controls-cell">
-              <div class="control-buttons">
-                <button>Edit</button>
-                <button>Delete</button>
-                <button>View</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Content</td>
-            <td>Content</td>
-            <!-- ... other cells ... -->
-            <td class="controls-cell">
-              <div class="control-buttons">
-                <button>Edit</button>
-                <button>Delete</button>
-                <button>View</button>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Content</td>
-            <td>Content</td>
-            <!-- ... other cells ... -->
-            <td class="controls-cell">
-              <div class="control-buttons">
-                <button>Edit</button>
-                <button>Delete</button>
-                <button>View</button>
-              </div>
-            </td>
-          </tr>
-          <!-- ... other rows ... -->
-        </tbody>
-      </table>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-  const table = document.getElementById('myTable');
-  
-  table.addEventListener('mouseover', (e) => {
-    const tr = e.target.closest('tr');
-    if (tr) {
-      const buttons = tr.querySelector('.control-buttons');
-      if (buttons) {
-        buttons.style.display = 'block';
-        
-        // Ensure buttons are visible if table has overflow
-        const rect = buttons.getBoundingClientRect();
-        const tableRect = table.getBoundingClientRect();
-        
-        if (rect.right > tableRect.right) {
-          buttons.style.right = `${tableRect.right - rect.right}px`;
-        }
-      }
-    }
-  });
-
-  table.addEventListener('mouseout', (e) => {
-    const tr = e.target.closest('tr');
-    if (tr) {
-      const buttons = tr.querySelector('.control-buttons');
-      if (buttons) {
-        buttons.style.display = 'none';
-        buttons.style.right = '0'; // Reset position
-      }
-    }
-  });
-});
-      </script>
-  </body>
-  </html>
+</head>
+<body>
+    <div class="confirmation-dialog">
+        <div class="flex jc-sb">
+            <h2>Thông tin nhân viên</h2>
+            <button class="close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <div class="confimation-text">
+            <p>Bạn có chắc chắn muốn xoá nhân viên</p>
+        </div>
+        <div class="flex">
+            <button class="yes-dialog-btn">Có</button>
+            <button class="no-dialog-btn">Không</button>
+        </div>
+    </div>
+</body>
+</html>
