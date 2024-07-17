@@ -55,14 +55,19 @@ main {
 }
 
 .table-action {
-    visibility: hidden;
+    display: none;
     position: absolute;
-    height: 43px;
-    right: 10rem;
     padding: 0;
     background-color: #e9ecef;
+    right: 1rem;
+    top: 0rem;
+    z-index: 1;
+}
+
+.test {
+    position: relative;
 }
 
 tr:hover .table-action {
-    visibility: hidden;
+    display: block;
 }

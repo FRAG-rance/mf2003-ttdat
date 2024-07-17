@@ -1,0 +1,111 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myTable {
+        overflow: hidden;
+        position: relative;
+        }
+
+        .controls-cell {
+        position: relative;
+        }
+
+        .control-buttons {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        background-color: white;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        }
+
+        .control-buttons button {
+        margin: 0 2px;
+        }
+    </style>
+  </head>
+  <body>
+    <table id="myTable">
+        <tbody>
+          <tr>
+            <td>Content</td>
+            <td>Content</td>
+            <!-- ... other cells ... -->
+            <td class="controls-cell">
+              <div class="control-buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+                <button>View</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Content</td>
+            <td>Content</td>
+            <!-- ... other cells ... -->
+            <td class="controls-cell">
+              <div class="control-buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+                <button>View</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Content</td>
+            <td>Content</td>
+            <!-- ... other cells ... -->
+            <td class="controls-cell">
+              <div class="control-buttons">
+                <button>Edit</button>
+                <button>Delete</button>
+                <button>View</button>
+              </div>
+            </td>
+          </tr>
+          <!-- ... other rows ... -->
+        </tbody>
+      </table>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+  const table = document.getElementById('myTable');
+  
+  table.addEventListener('mouseover', (e) => {
+    const tr = e.target.closest('tr');
+    if (tr) {
+      const buttons = tr.querySelector('.control-buttons');
+      if (buttons) {
+        buttons.style.display = 'block';
+        
+        // Ensure buttons are visible if table has overflow
+        const rect = buttons.getBoundingClientRect();
+        const tableRect = table.getBoundingClientRect();
+        
+        if (rect.right > tableRect.right) {
+          buttons.style.right = `${tableRect.right - rect.right}px`;
+        }
+      }
+    }
+  });
+
+  table.addEventListener('mouseout', (e) => {
+    const tr = e.target.closest('tr');
+    if (tr) {
+      const buttons = tr.querySelector('.control-buttons');
+      if (buttons) {
+        buttons.style.display = 'none';
+        buttons.style.right = '0'; // Reset position
+      }
+    }
+  });
+});
+      </script>
+  </body>
+  </html>
