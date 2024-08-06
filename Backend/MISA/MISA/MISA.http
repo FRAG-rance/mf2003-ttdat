@@ -1,0 +1,6 @@
+@MISA_HostAddress = http://localhost:5017
+
+GET {{MISA_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

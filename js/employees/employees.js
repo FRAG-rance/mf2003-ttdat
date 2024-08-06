@@ -11,7 +11,7 @@ window.onload = function () {
 
     initEvents() {
       try {
-
+        //khởi tạo nút cho form
         document.querySelector('#table-add-button').addEventListener('click', () => {
             try {
                 let formContainter = document.querySelector('.form-container');
@@ -54,10 +54,11 @@ window.onload = function () {
                 console.error(error);
             }
         });
-        
+        //khởi tạo nút cho dialog xoá
         document.querySelector('.del-confirmation .dialog-close-btn').addEventListener('click', () => {
             try {
                 let confirmationDialog = document.querySelector('.del-confirmation');
+                confirmationDialog.classList.add('hidden');
             } catch (error) {
                 console.error(error);
             }
@@ -72,7 +73,7 @@ window.onload = function () {
             }
 
         });
-
+        //khởi tạo nút cho dialog lỗi
         document.querySelector('.error .dialog-close-btn').addEventListener('click', () => {
             try {
                 let errorDialog = document.querySelector('.error');
@@ -128,7 +129,6 @@ window.onload = function () {
     loadData() {
         try {
             fetch('https://cukcuk.manhnv.net/api/v1/Employees').then(res => res.json()).then(data => {
-                console.log(data);
                 let table = document.querySelector('#tableEmp');
                 let i = 1;
                 for (const item of data) {
@@ -189,6 +189,7 @@ window.onload = function () {
             let EmployeeSDate = document.querySelector('#employee-sDate').value;
             let EmployeeBirthdate = document.querySelector('#employee-birthdate').value;
             
+            //kiểm tra input trống
             if(
                 EmployeeId === "" ||
                 EmployeeId === null ||
@@ -233,12 +234,12 @@ window.onload = function () {
                 errorMessage.push("Mã số căn cước không được phép để trống.");
                 document.querySelector('#employee-socials').style.borderColor = "red";
             }
-
+            //kiểm tra email
             if(!emailRegex.test(EmployeeEmail)) {
                 errorMessage.push("Email sai định dạng.");
                 document.querySelector('#email').style.borderColor = "red";
             }
-
+            //so sánh date
             if(EmployeeSDate > date) {
                 errorMessage.push("Ngày cấp nhân viên không hợp lệ");
                 document.querySelector('#employee-sDate').style.borderColor = "red";
