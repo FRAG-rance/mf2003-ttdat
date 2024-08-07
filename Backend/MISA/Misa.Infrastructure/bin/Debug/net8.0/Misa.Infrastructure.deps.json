@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Misa.Infrastructure/1.0.0": {
+        "dependencies": {
+          "MISA.Core": "1.0.0"
+        },
+        "runtime": {
+          "Misa.Infrastructure.dll": {}
+        }
+      },
+      "MISA.Core/1.0.0": {
+        "runtime": {
+          "MISA.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Misa.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MISA.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

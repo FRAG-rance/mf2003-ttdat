@@ -20,7 +20,6 @@ namespace MISA.Controllers
         [HttpGet]
         public async Task<ActionResult<Employee>> GetEmployees()
         {
-            
             var connection = new MySqlConnection(connectionString);
             var sql = "SELECT * FROM employee";
             var employees = await connection.QueryAsync<Employee>(sql);
