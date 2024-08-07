@@ -17,5 +17,9 @@ namespace MISA.Entities
         [Required] public string PhoneNumber {  get; set; }
 
         [Required] public string EmployeeSocials {  get; set; }
+
+        public DateTime? EmployeeSDate { get; set; }
+
+        public DateTime? EmployeeBirthdate { get; set; }
     }
 }

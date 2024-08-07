@@ -128,19 +128,21 @@ window.onload = function () {
 
     loadData() {
         try {
-            fetch('https://cukcuk.manhnv.net/api/v1/Employees').then(res => res.json()).then(data => {
+            fetch('http://localhost:5017/api/v1/Employees').then(res => res.json()).then(data => {
                 let table = document.querySelector('#tableEmp');
                 let i = 1;
                 for (const item of data) {
                     let tr = document.createElement('tr');
                     tr.className = 'test';
+//                  <td>${item.Gender == 1 ? 'Nam' : 'Nữ'}</td>
+
                     tr.innerHTML = `<td>${i}</td>
-                                    <td>${item.EmployeeCode}</td>
+                                    <td>${item.EmployeeId}</td>
                                     <td>${item.FullName}</td>
-                                    <td>${item.Gender == 1 ? 'Nam' : 'Nữ'}</td>
-                                    <td>${item.DateOfBirth}</td>
+                                    <td>${item.PhoneNumber}</td>
+                                    <td>${item.EmployeeSocials}</td>
                                     <td>${item.Email}</td>
-                                    <td>${item.Address}
+                                    <td>${item.EmployeeSDate}
                                         <div class="table-action">
                                             <a href="#">
                                                 <img src="./assets/icon/add.png" alt="" class="icon">
