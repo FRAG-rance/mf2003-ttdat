@@ -4,10 +4,104 @@ window.onload = function () {
   
   class employeePage {
     pageTile = "Quản lý nhân viên ";
+    
+    allEmployees = [];
+    itemsPerPage = 10;
+    currentPage = 1;
+
     constructor() {
-        this.loadData();
-        this.initEvents();
+        this.init();
     }
+
+    async init() {
+        this.setupPagination();
+        this.initEvents();   
+        
+        await this.getEmployees();
+        //this.loadData();
+        this.updateTable();
+    }
+
+    async getEmployees() {
+        try {
+            const response = await fetch('test.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            this.allEmployees = await response.json();
+            console.log(this.allEmployees)
+            return this.allEmployees;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async getEmployee(employeeId) {
+        try {
+            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employeeId}`);
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        } catch (error) {
+            console.log(error);
+        }
+        
+    }
+
+    renderTable(pageData) {
+        let table = document.querySelector('#tableEmp');
+        let tableContent = document.querySelector('tbody');
+        tableContent.innerHTML = '';
+        let i = 1;
+
+        pageData.forEach(item => {
+            let tr = document.createElement('tr');
+            tr.innerHTML = `<td>${i}</td>
+                            <td>${item.EmployeeCode}</td>
+                            <td>${item.FullName}</td>
+                            <td>${item.Gender == 1 ? 'Nam' : 'Nữ'}</td>
+                            <td>${item.DateOfBirth}</td>
+                            <td>${item.Email}</td>
+                            <td>${item.Address}
+                                <div class="table-action">
+                                    <a href="#">
+                                        <img src="./assets/icon/add.png" alt="" class="icon">
+                                    </a>
+                                    <a href="#">
+                                        <img src="./assets/icon/document-online.png" alt="" class="icon">
+                                    </a>
+                                    <a href="#" class='del-emp-btn'>
+                                        <img src="./assets/icon/delete-48.png" alt="" class="icon">
+                                    </a>
+                                </div>
+                            </td>`;
+            table.querySelector('tbody').append(tr);
+            i++;
+        })
+      };
+      
+    updateTable() {
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const endIndex = startIndex + this.itemsPerPage;
+        const pageData = this.allEmployees.slice(startIndex, endIndex);
+        this.renderTable(pageData);
+    }
+      
+    setupPagination() {
+        const totalPages = Math.ceil(this.allEmployees.length / this.itemsPerPage);
+        
+        let decreasePage = document.querySelector('#decrease-page');
+        let increasePage = document.querySelector('#increase-page');
+
+        decreasePage.addEventListener('click', () => { 
+            this.currentPage = this.currentPage - 1;
+            this.updateTable();
+            console.log(this.currentPage);
+        });
+
+        increasePage.addEventListener('click', () => { 
+            this.currentPage = this.currentPage + 1;
+            this.updateTable();
+            console.log(this.currentPage);
+        });
+      }
 
     initEvents() {
       try {
@@ -126,7 +220,9 @@ window.onload = function () {
       }
     }
 
+    /*
     loadData() {
+        
         try {
             fetch('http://localhost:5017/api/v1/Employees').then(res => res.json()).then(data => {
                 let table = document.querySelector('#tableEmp');
@@ -159,6 +255,38 @@ window.onload = function () {
                     i++;
                 }
 
+                
+        try {
+            fetch('https://cukcuk.manhnv.net/api/v1/Employees').then(res => res.json()).then(data => {
+                console.log(data);
+                let table = document.querySelector('#tableEmp');
+                let i = 1;
+                for (const item of data) {
+                    let tr = document.createElement('tr');
+                    tr.className = 'test';
+                    tr.innerHTML = `<td>${i}</td>
+                                    <td>${item.EmployeeCode}</td>
+                                    <td>${item.FullName}</td>
+                                    <td>${item.Gender == 1 ? 'Nam' : 'Nữ'}</td>
+                                    <td>${item.DateOfBirth}</td>
+                                    <td>${item.Email}</td>
+                                    <td>${item.Address}
+                                        <div class="table-action">
+                                            <a href="#">
+                                                <img src="./assets/icon/add.png" alt="" class="icon">
+                                            </a>
+                                            <a href="#">
+                                                <img src="./assets/icon/document-online.png" alt="" class="icon">
+                                            </a>
+                                            <a href="#" class='del-emp-btn'>
+                                                <img src="./assets/icon/delete-48.png" alt="" class="icon">
+                                            </a>
+                                        </div>
+                                    </td>`;
+                    table.querySelector('tbody').append(tr);
+                    i++;
+                }
+                
                 //hơi ngu nhưng mà tạm 
                 document.querySelectorAll('.del-emp-btn').forEach(item => {
                     item.addEventListener('click', () => {
@@ -174,7 +302,7 @@ window.onload = function () {
         } catch(error) {
             console.log(error);
         }
-    }
+    }*/
 
     inputValidation() { 
         try {
