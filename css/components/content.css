@@ -57,7 +57,7 @@ main {
 
 .table-action {
     display: none;
-    position: absolute;
+    /*position: absolute;*/
     padding: 0;
     background-color: #e9ecef;
     right: 1rem;

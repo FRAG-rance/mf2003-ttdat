@@ -16,7 +16,7 @@ window.onload = function () {
     async init() {
         this.setupPagination();
         this.initEvents();   
-        
+
         await this.getEmployees();
         //this.loadData();
         this.updateTable();
@@ -25,7 +25,7 @@ window.onload = function () {
     async getEmployees() {
         try {
             const response = await fetch('test.json');
-            if (!response.ok) throw new Error('Network response was not ok');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             this.allEmployees = await response.json();
             console.log(this.allEmployees)
             return this.allEmployees;
@@ -34,26 +34,74 @@ window.onload = function () {
         }
     }
 
-    async getEmployee(employeeId) {
+    async getEmployee(employee) {
         try {
-            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employeeId}`);
-            if (!response.ok) throw new Error('Network response was not ok');
+            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            console.log("Xoá thành công");
             return response.json();
         } catch (error) {
             console.log(error);
         }
-        
+    }
+
+    async deleteEmployee(employee) {
+        try {
+            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`, {method: 'DELETE'});
+            console.log(employee.EmployeeId)
+            console.log("good ig")
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    showDeleteConfirmation(employee) {
+        let confirmationDialog = document.querySelector('.del-confirmation');
+        confirmationDialog.classList.remove('hidden');
+
+        document.querySelector('.del-confirmation .dialog-close-btn').addEventListener('click', () => {
+            try {
+                confirmationDialog.classList.add('hidden');
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+        document.querySelector('.del-confirmation .no-dialog-btn').addEventListener('click', () => {
+            try {
+                confirmationDialog.classList.add('hidden');
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+        document.querySelector('.del-confirmation .yes-dialog-btn').addEventListener('click', () => {
+            try {
+                this.deleteEmployee(employee);
+                confirmationDialog.classList.add('hidden');
+            } catch (error) {
+                console.error(error);
+            }
+        });
+        console.log('fuck')
+    }
+
+    clearTable() {
+        const table = document.querySelector('#tableEmp');
+        while (table.rows.length > 1) {
+            table.deleteRow(1);
+        }
     }
 
     renderTable(pageData) {
         let table = document.querySelector('#tableEmp');
         let tableContent = document.querySelector('tbody');
-        tableContent.innerHTML = '';
+        this.clearTable();
         let i = 1;
 
         pageData.forEach(item => {
-            let tr = document.createElement('tr');
-            tr.innerHTML = `<td>${i}</td>
+            const row = table.insertRow();
+            row.innerHTML = `<td>${i}</td>
                             <td>${item.EmployeeCode}</td>
                             <td>${item.FullName}</td>
                             <td>${item.Gender == 1 ? 'Nam' : 'Nữ'}</td>
@@ -72,8 +120,8 @@ window.onload = function () {
                                     </a>
                                 </div>
                             </td>`;
-            table.querySelector('tbody').append(tr);
             i++;
+            row.addEventListener('click', () => this.showDeleteConfirmation(item));
         })
       };
       
@@ -86,7 +134,6 @@ window.onload = function () {
       
     setupPagination() {
         const totalPages = Math.ceil(this.allEmployees.length / this.itemsPerPage);
-        
         let decreasePage = document.querySelector('#decrease-page');
         let increasePage = document.querySelector('#increase-page');
 
@@ -101,7 +148,16 @@ window.onload = function () {
             this.updateTable();
             console.log(this.currentPage);
         });
-      }
+    }
+
+    searchKey(key) {
+        const searchKey = key.toLowerCase().trim();
+        const filteredEmployees = this.allEmployees.filter(employee => 
+            employee.EmployeeCode.toLowerCase().includes(searchKey)
+        );
+        this.currentPage = 1
+        this.renderTable(filteredEmployees)
+    }
 
     initEvents() {
       try {
@@ -149,24 +205,7 @@ window.onload = function () {
             }
         });
         //khởi tạo nút cho dialog xoá
-        document.querySelector('.del-confirmation .dialog-close-btn').addEventListener('click', () => {
-            try {
-                let confirmationDialog = document.querySelector('.del-confirmation');
-                confirmationDialog.classList.add('hidden');
-            } catch (error) {
-                console.error(error);
-            }
-        });
-
-        document.querySelector('.del-confirmation .no-dialog-btn').addEventListener('click', () => {
-            try {
-                let confirmationDialog = document.querySelector('.del-confirmation');
-                confirmationDialog.classList.add('hidden');
-            } catch (error) {
-                console.error(error);
-            }
-
-        });
+        
         //khởi tạo nút cho dialog lỗi
         document.querySelector('.error .dialog-close-btn').addEventListener('click', () => {
             try {
@@ -214,6 +253,25 @@ window.onload = function () {
                 console.error(error);
             }
         });
+
+        document.querySelector('#search-clear-button').addEventListener('click', () => {
+            try {
+                this.updateTable(this.allEmployees);
+                const searchBar = document.querySelector("#searchbar");
+                searchBar.value = '';
+            } catch(error) {
+                console.error(error);
+            }
+        })
+
+        document.querySelector('#search-button').addEventListener('click', () => {
+            try {
+                let key = document.querySelector('#searchbar').value;
+                this.searchKey(key);
+            } catch(error) {
+                console.error(error);
+            }
+        })
 
       } catch(error) {
         console.log(error);
@@ -296,7 +354,8 @@ window.onload = function () {
                     } catch (error) {
                         console.error(error);
                     }
-                })});
+                })}
+                );
 
             })
         } catch(error) {
