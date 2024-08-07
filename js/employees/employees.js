@@ -101,6 +101,7 @@ window.onload = function () {
 
         pageData.forEach(item => {
             const row = table.insertRow();
+            row.classList.add("rel");
             row.innerHTML = `<td>${i}</td>
                             <td>${item.EmployeeCode}</td>
                             <td>${item.FullName}</td>
