@@ -24,10 +24,9 @@ window.onload = function () {
 
     async getEmployees() {
         try {
-            const response = await fetch('test.json');
+            const response = await fetch('https://cukcuk.manhnv.net/api/v1/Employees');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             this.allEmployees = await response.json();
-            console.log(this.allEmployees)
             return this.allEmployees;
         } catch (error) {
             console.log(error);
@@ -38,7 +37,6 @@ window.onload = function () {
         try {
             const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            console.log("Xoá thành công");
             return response.json();
         } catch (error) {
             console.log(error);
@@ -47,9 +45,23 @@ window.onload = function () {
 
     async deleteEmployee(employee) {
         try {
-            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`, {method: 'DELETE'});
+            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`, {
+                method: 'DELETE'
+            });
             console.log(employee.EmployeeId)
             console.log("good ig")
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async addEmployee(employee) {
+        console.log(employee)
+        try {
+            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`, {
+                method: 'POST',
+                body: JSON.stringify({employee})
+            });
         } catch (error) {
             console.log(error);
         }
@@ -86,10 +98,60 @@ window.onload = function () {
         console.log('fuck')
     }
 
+    showAddForm() {
+        let formContainter = document.querySelector('.form-container');
+
+        try {
+            formContainter.classList.remove('hidden');
+        } catch (error) {
+            console.error(error);
+        }
+
+        document.querySelector('.form-close-btn').addEventListener('click', () => {
+            try {
+                formContainter.classList.add('hidden');
+                document.querySelector('#employee-Id').style.borderColor = "#e6e6e6";
+                document.querySelector('#employee-name').style.borderColor = "#e6e6e6";
+                document.querySelector('#email').style.borderColor = "#e6e6e6";
+                document.querySelector('#employee-sDate').style.borderColor = "#e6e6e6";
+                document.querySelector('#employee-birthdate').style.borderColor = "#e6e6e6";
+                document.querySelector('#employee-phoneNo').style.borderColor = "#e6e6e6";
+                document.querySelector('#employee-socials').style.borderColor = "#e6e6e6";
+
+            } catch (error) {
+                console.error(error);
+            }
+        });
+    }
+
+    generateDialog() {
+        let errorDialog = document.querySelector('.error');
+                let errors = this.inputValidation();
+                if(errors.length !== 0) {
+                    let errorMessage = document.querySelector('.error-message');
+                    errors.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        errorMessage.appendChild(li);
+                    });                    
+                    errorDialog.classList.remove('hidden');
+                    return 1;
+                } else {
+                    return 0;
+                }     
+    }
+
     clearTable() {
         const table = document.querySelector('#tableEmp');
         while (table.rows.length > 1) {
             table.deleteRow(1);
+        }
+    }
+
+    clearDialog() {
+        let errorMessage = document.querySelector('.error-message');
+        while (errorMessage.firstChild) {
+            errorMessage.removeChild(errorMessage.firstChild);
         }
     }
 
@@ -161,33 +223,9 @@ window.onload = function () {
     }
 
     initEvents() {
-      try {
-        //khởi tạo nút cho form
+      try {       
         document.querySelector('#table-add-button').addEventListener('click', () => {
-            try {
-                let formContainter = document.querySelector('.form-container');
-                formContainter.classList.remove('hidden');
-            } catch (error) {
-                console.error(error);
-            }
-            
-        });
-
-        document.querySelector('.form-close-btn').addEventListener('click', () => {
-            try {
-                let formContainter = document.querySelector('.form-container');
-                formContainter.classList.add('hidden');
-                document.querySelector('#employee-Id').style.borderColor = "#e6e6e6";
-                document.querySelector('#employee-name').style.borderColor = "#e6e6e6";
-                document.querySelector('#email').style.borderColor = "#e6e6e6";
-                document.querySelector('#employee-sDate').style.borderColor = "#e6e6e6";
-                document.querySelector('#employee-birthdate').style.borderColor = "#e6e6e6";
-                document.querySelector('#employee-phoneNo').style.borderColor = "#e6e6e6";
-                document.querySelector('#employee-socials').style.borderColor = "#e6e6e6";
-
-            } catch (error) {
-                console.error(error);
-            }
+           this.showAddForm();            
         });
 
         document.querySelector('.btn-cancel').addEventListener('click', () => {
@@ -204,18 +242,13 @@ window.onload = function () {
             } catch (error) {
                 console.error(error);
             }
-        });
-        //khởi tạo nút cho dialog xoá
-        
+        });        
         //khởi tạo nút cho dialog lỗi
         document.querySelector('.error .dialog-close-btn').addEventListener('click', () => {
             try {
                 let errorDialog = document.querySelector('.error');
                 errorDialog.classList.add('hidden');
-                let errorMessage = document.querySelector('.error-message');
-                while (errorMessage.firstChild) {
-                    errorMessage.removeChild(errorMessage.firstChild);
-                }
+                this.clearDialog();
             } catch (error) {
                 console.error(error);
             }
@@ -225,11 +258,7 @@ window.onload = function () {
             try {
                 let errorDialog = document.querySelector('.error');
                 errorDialog.classList.add('hidden');
-                let errorMessage = document.querySelector('.error-message');
-                while (errorMessage.firstChild) {
-                    errorMessage.removeChild(errorMessage.firstChild);
-                }
-                confirmationDialog.classList.add('hidden');
+                this.clearDialog();
             } catch (error) {
                 console.error(error);
             }
@@ -237,19 +266,41 @@ window.onload = function () {
 
         document.querySelector('.btn-save').addEventListener('click', () => {
             try {
-                let errorDialog = document.querySelector('.error');
-                let errors = this.inputValidation();
-                if(
-                    errors.length !== 0
-                  ) {
-                    let errorMessage = document.querySelector('.error-message');
-                    errors.forEach(item => {
-                        const li = document.createElement('li');
-                        li.textContent = item;
-                        errorMessage.appendChild(li);
-                    });                    
-                    errorDialog.classList.remove('hidden');
-                }                
+                this.clearDialog();
+                if(!this.generateDialog()) {
+                    let tempEmployee = {
+                        "employeeId": "string",
+                        "employeeCode": "string",
+                        "firstName": "string",
+                        "lastName": "string",
+                        "fullName": `${document.querySelector('#employee-name').value}`,
+                        "gender": 0,
+                        "dateOfBirth": "2024-08-07T22:38:45.588Z",
+                        "phoneNumber": `${document.querySelector('#employee-phoneNo').value}`,
+                        "email": `${document.querySelector('#email').value}`,
+                        "address": "string",
+                        "identityNumber": "string",
+                        "identityDate": "2024-08-07T22:38:45.588Z",
+                        "identityPlace": "string",
+                        "joinDate": "2024-08-07T22:38:45.588Z",
+                        "martialStatus": 0,
+                        "educationalBackground": 0,
+                        "qualificationId": "string",
+                        "departmentId": "string",
+                        "positionId": "string",
+                        "nationalityId": "string",
+                        "workStatus": 0,
+                        "personalTaxCode": "string",
+                        "salary": 0,
+                        "positionCode": "string",
+                        "positionName": "string",
+                        "departmentCode": "string",
+                        "departmentName": "string",
+                        "qualificationName": "string",
+                        "nationalityName": "string"
+                    }
+                    this.addEmployee(tempEmployee);
+                }
             } catch (error) {
                 console.error(error);
             }
