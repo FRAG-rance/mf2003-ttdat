@@ -3,40 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\misa.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\misa.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\entities\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\entities\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\interfaces\\iemployeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\misa.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\misa.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\entities\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\entities\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\entities\\department.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\entities\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\misa.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\misa.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\interfaces\\iemployeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\misa.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\misa.core.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\misa.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\misa.api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.core\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{39EBA7D5-0F2A-4A57-81B9-659F195A9EC6}|MISA.Core\\MISA.Core.csproj|solutionrelative:misa.core\\services\\employeeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B06B1818-3384-4B3D-A0D2-FFC206D57759}|Misa.Infrastructure\\Misa.Infrastructure.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.infrastructure\\repository\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B06B1818-3384-4B3D-A0D2-FFC206D57759}|Misa.Infrastructure\\Misa.Infrastructure.csproj|solutionrelative:misa.infrastructure\\repository\\employeerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B06B1818-3384-4B3D-A0D2-FFC206D57759}|Misa.Infrastructure\\Misa.Infrastructure.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa.infrastructure\\misa.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B06B1818-3384-4B3D-A0D2-FFC206D57759}|Misa.Infrastructure\\Misa.Infrastructure.csproj|solutionrelative:misa.infrastructure\\misa.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,24 +78,128 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "Position.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Position.cs",
+              "RelativeDocumentMoniker": "MISA.Core\\Entities\\Position.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Position.cs",
+              "RelativeToolTip": "MISA.Core\\Entities\\Position.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T15:11:51.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Department.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Department.cs",
+              "RelativeDocumentMoniker": "MISA.Core\\Entities\\Department.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Department.cs",
+              "RelativeToolTip": "MISA.Core\\Entities\\Department.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T15:10:46.557Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "MISA\\Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "MISA\\Controllers\\EmployeesController.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAnwDkAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T15:47:57.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MISA\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MISA\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-12T10:49:29.149Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "MISA\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\appsettings.Development.json",
+              "RelativeToolTip": "MISA\\appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAACBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-06T17:12:45.089Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Program.cs",
+              "RelativeDocumentMoniker": "MISA\\Program.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Program.cs",
+              "RelativeToolTip": "MISA\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T07:58:55.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MISA.Core.csproj",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\MISA.Core.csproj",
+              "RelativeDocumentMoniker": "MISA.Core\\MISA.Core.csproj",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\MISA.Core.csproj",
+              "RelativeToolTip": "MISA.Core\\MISA.Core.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-07T15:07:08.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "IEmployeeRepository.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IEmployeeRepository.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Interfaces\\IEmployeeRepository.cs",
               "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IEmployeeRepository.cs",
               "RelativeToolTip": "MISA.Core\\Interfaces\\IEmployeeRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAmAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-07T15:22:56.729Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "MISA.Api.csproj",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.Api.csproj",
+              "RelativeDocumentMoniker": "MISA\\MISA.Api.csproj",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.Api.csproj",
+              "RelativeToolTip": "MISA\\MISA.Api.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-07T14:59:19.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Employee.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Entities\\Employee.cs",
@@ -76,87 +212,91 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MISA.Core.csproj",
-              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\MISA.Core.csproj",
-              "RelativeDocumentMoniker": "MISA.Core\\MISA.Core.csproj",
-              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\MISA.Core.csproj",
-              "RelativeToolTip": "MISA.Core\\MISA.Core.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-07T15:07:08.495Z"
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\appsettings.json",
+              "RelativeDocumentMoniker": "MISA\\appsettings.json",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\appsettings.json",
+              "RelativeToolTip": "MISA\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-12T10:49:19.015Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MISA.Api.csproj",
+              "DocumentIndex": 10,
+              "Title": "MISA.http",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.http",
+              "RelativeDocumentMoniker": "MISA\\MISA.http",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.http",
+              "RelativeToolTip": "MISA\\MISA.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2024-08-12T10:49:45.965Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IEmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IEmployeeService.cs",
+              "RelativeDocumentMoniker": "MISA.Core\\Interfaces\\IEmployeeService.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IEmployeeService.cs",
+              "RelativeToolTip": "MISA.Core\\Interfaces\\IEmployeeService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T09:47:28.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Misa.Infrastructure.csproj",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\Misa.Infrastructure\\Misa.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "Misa.Infrastructure\\Misa.Infrastructure.csproj",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\Misa.Infrastructure\\Misa.Infrastructure.csproj",
+              "RelativeToolTip": "Misa.Infrastructure\\Misa.Infrastructure.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-11T10:49:40.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MISA.Api",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.Api.csproj",
               "RelativeDocumentMoniker": "MISA\\MISA.Api.csproj",
               "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.Api.csproj",
               "RelativeToolTip": "MISA\\MISA.Api.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-07T14:59:19.234Z"
+              "WhenOpened": "2024-08-12T10:49:14.994Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Position.cs",
-              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Entities\\Position.cs",
-              "RelativeDocumentMoniker": "MISA\\Entities\\Position.cs",
-              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Entities\\Position.cs",
-              "RelativeToolTip": "MISA\\Entities\\Position.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "DocumentIndex": 15,
+              "Title": "EmployeeRepository.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\Misa.Infrastructure\\Repository\\EmployeeRepository.cs",
+              "RelativeDocumentMoniker": "Misa.Infrastructure\\Repository\\EmployeeRepository.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\Misa.Infrastructure\\Repository\\EmployeeRepository.cs",
+              "RelativeToolTip": "Misa.Infrastructure\\Repository\\EmployeeRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:18:17.248Z"
+              "WhenOpened": "2024-08-11T15:14:25.976Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Department.cs",
-              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Entities\\Department.cs",
-              "RelativeDocumentMoniker": "MISA\\Entities\\Department.cs",
-              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Entities\\Department.cs",
-              "RelativeToolTip": "MISA\\Entities\\Department.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAyAAAA",
+              "DocumentIndex": 14,
+              "Title": "EmployeeService.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Services\\EmployeeService.cs",
+              "RelativeDocumentMoniker": "MISA.Core\\Services\\EmployeeService.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Services\\EmployeeService.cs",
+              "RelativeToolTip": "MISA.Core\\Services\\EmployeeService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-07T08:11:25.86Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "MISA\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\appsettings.Development.json",
-              "RelativeToolTip": "MISA\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-06T17:12:45.089Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Employee.cs",
-              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Entities\\Employee.cs",
-              "RelativeDocumentMoniker": "MISA\\Entities\\Employee.cs",
-              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Entities\\Employee.cs",
-              "RelativeToolTip": "MISA\\Entities\\Employee.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T13:24:58.185Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "EmployeesController.cs",
-              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\EmployeesController.cs",
-              "RelativeDocumentMoniker": "MISA\\Controllers\\EmployeesController.cs",
-              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\EmployeesController.cs",
-              "RelativeToolTip": "MISA\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAIwBsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T15:47:57.673Z"
+              "WhenOpened": "2024-08-11T15:28:41.503Z"
             }
           ]
         }

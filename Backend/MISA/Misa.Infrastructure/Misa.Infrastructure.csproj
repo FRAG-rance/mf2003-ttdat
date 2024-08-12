@@ -10,4 +10,8 @@
     <ProjectReference Include="..\MISA.Core\MISA.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="File\" />
+  </ItemGroup>
+
 </Project>

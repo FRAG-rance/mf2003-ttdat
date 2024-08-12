@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MISA.Core.Interfaces
 {
-    internal interface IEmployeeRepository
+    public interface IEmployeeRepository
     {
         List<Employee> GetAll();
         Employee Get(string id);

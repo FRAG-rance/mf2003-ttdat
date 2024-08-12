@@ -1,4 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 // Add services to the container.
 
@@ -13,12 +14,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll",
-        builder => builder.AllowAnyOrigin()
-                          .AllowAnyHeader()
-                          .AllowAnyMethod()
-                          .AllowCredentials()
-                          .WithExposedHeaders("*"));
+    options.AddPolicy("CorsPolicy",
+        builder => builder
+            .AllowAnyMethod()
+            .AllowCredentials()
+            .SetIsOriginAllowed((host) => true)
+            .AllowAnyHeader());
 });
 
 var app = builder.Build();
@@ -30,13 +31,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
 
-app.UseCors("AllowAll");
 
 
 

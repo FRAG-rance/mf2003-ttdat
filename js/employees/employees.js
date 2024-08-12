@@ -24,7 +24,7 @@ window.onload = function () {
 
     async getEmployees() {
         try {
-            const response = await fetch('https://cukcuk.manhnv.net/api/v1/Employees');
+            const response = await fetch('http://localhost:5017/api/v1/Employees');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             this.allEmployees = await response.json();
             return this.allEmployees;
