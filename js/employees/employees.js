@@ -35,7 +35,7 @@ window.onload = function () {
 
     async getEmployee(employee) {
         try {
-            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`);
+            const response = await fetch(`http://localhost:5017/api/v1/Employees/${employee.EmployeeId}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return response.json();
         } catch (error) {
@@ -45,7 +45,7 @@ window.onload = function () {
 
     async deleteEmployee(employee) {
         try {
-            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`, {
+            const response = await fetch(`http://localhost:5017/api/v1/Employees/${employee.EmployeeId}`, {
                 method: 'DELETE'
             });
             console.log(employee.EmployeeId)
@@ -58,7 +58,7 @@ window.onload = function () {
     async addEmployee(employee) {
         console.log(employee)
         try {
-            const response = await fetch(`https://cukcuk.manhnv.net/api/v1/Employees/${employee.EmployeeId}`, {
+            const response = await fetch(`http://localhost:5017/api/v1/Employees/${employee.EmployeeId}`, {
                 method: 'POST',
                 body: JSON.stringify({employee})
             });

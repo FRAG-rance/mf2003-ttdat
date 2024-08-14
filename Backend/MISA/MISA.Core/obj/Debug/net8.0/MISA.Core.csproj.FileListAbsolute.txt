@@ -10,3 +10,4 @@ C:\Users\1pho2\mf2003-ttdat\Backend\MISA\MISA.Core\obj\Debug\net8.0\MISA.Core.dl
 C:\Users\1pho2\mf2003-ttdat\Backend\MISA\MISA.Core\obj\Debug\net8.0\refint\MISA.Core.dll
 C:\Users\1pho2\mf2003-ttdat\Backend\MISA\MISA.Core\obj\Debug\net8.0\MISA.Core.pdb
 C:\Users\1pho2\mf2003-ttdat\Backend\MISA\MISA.Core\obj\Debug\net8.0\ref\MISA.Core.dll
+C:\Users\1pho2\mf2003-ttdat\Backend\MISA\MISA.Core\obj\Debug\net8.0\MISA.Core.csproj.AssemblyReference.cache

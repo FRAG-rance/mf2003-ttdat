@@ -9,8 +9,8 @@ namespace MISA.Core.Interfaces
 {
     public interface IEmployeeRepository
     {
-        List<Employee> GetAll();
-        Employee Get(string id);
+        IEnumerable<Employee> GetAll();
+        Employee Get(string code);
         int Insert(Employee employee);
         int Update(Employee employee);
         int Delete(Employee employee);
