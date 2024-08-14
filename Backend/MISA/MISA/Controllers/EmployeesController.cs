@@ -22,7 +22,6 @@ namespace MISA.Controllers
             _employeeService = employeeService;
         }
 
-        
         [HttpGet]
         public IActionResult GetEmployees()
         {
@@ -56,7 +55,7 @@ namespace MISA.Controllers
         {
             try
             {
-                var data = _employeeRepository.Insert(employee);
+                var data = _employeeService.EmployeeInsertionValidation(employee);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -70,7 +69,7 @@ namespace MISA.Controllers
         {
             try
             {
-                var data = _employeeRepository.Update(employee);
+                var data = _employeeService.EmployeeUpdateiValidation(employee);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -79,12 +78,12 @@ namespace MISA.Controllers
             }
         }
 
-        [HttpDelete("{employee.EmployeeCode}")]
-        public IActionResult DeleteEmployee(Employee employee)
+        [HttpDelete("{code}")]
+        public IActionResult DeleteEmployee(string code)
         {
             try
             {
-                var data = _employeeRepository.Delete(employee);
+                var data = _employeeService.EmployeeDeleteValidation(code);
                 return Ok(data);
             }
             catch (Exception ex)

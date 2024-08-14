@@ -10,6 +10,7 @@ using MySqlConnector;
 using Dapper;
 using System.Collections;
 using static Dapper.SqlMapper;
+using System.Diagnostics;
 
 
 namespace Misa.Infrastructure.Repository
@@ -23,19 +24,33 @@ namespace Misa.Infrastructure.Repository
             _connectionString = configuration.GetConnectionString("MariaDbConnection");
         }
 
-        public int Delete(Employee employee)
+        public bool CheckDupEmployeeCode(string employeeCode)
+        {
+            using (var connection = new MySqlConnection(_connectionString))
+            {
+                var sql = "select EmployeeCode from Employee where EmployeeCode = @EmployeeCode";
+                var dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("@EmployeeCode", employeeCode);
+                var result = connection.QueryFirstOrDefault<string>(sql, dynamicParameters);
+                if (result != null)
+                    return true;
+                return false;
+            }
+        }
+
+        public int Delete(string employeeCode)
         {
             using (var connection = new MySqlConnection(_connectionString))
             { 
                 var sql = "DELETE FROM Employee WHERE EmployeeCode = @EmployeeCode";
                 var dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@EmployeeCode", employee.EmployeeCode);
+                dynamicParameters.Add("@EmployeeCode", employeeCode);
                 var result = connection.Execute(sql, dynamicParameters);
                 return result;
             }
         } 
 
-        public Employee Get(string code)
+        public Employee Get(string employeeCode)
         {
             /*
             var connection = new MySqlConnection(_connectionString);
@@ -47,7 +62,7 @@ namespace Misa.Infrastructure.Repository
             {
                 var sql = "SELECT * FROM Employee WHERE EmployeeCode = @Code";
                 DynamicParameters dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@Code", code);
+                dynamicParameters.Add("@Code", employeeCode);
                 var employee = connection.QueryFirstOrDefault<Employee>(sql,dynamicParameters);
                 return employee;
             }
@@ -68,16 +83,21 @@ namespace Misa.Infrastructure.Repository
         {
             var properties = typeof(Employee).GetProperties();
             var dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("@EmployeeId", Guid.NewGuid);
+            dynamicParameters.Add("@EmployeeId", Guid.NewGuid());
             foreach (var prop in properties)
             {
-                dynamicParameters.Add("@" + prop.Name, prop.GetValue(employee));
+                if(prop.Name != "EmployeeId")
+                {
+                    dynamicParameters.Add("@" + prop.Name, prop.GetValue(employee));
+                }
             }
+
             using (var connection = new MySqlConnection(_connectionString))
             {
-
-                var sql = @"INSERT INTO Employee (EmployeeId, EmployeeCode, FullName, Email, MobileNumber, SocialNumber) 
-                        VALUES (@EmployeeId, @EmployeeCode, @FullName, @Email, @MobileNumber, @SocialNumber);
+                var sql = @"INSERT INTO Employee (EmployeeId, EmployeeCode, DepartmentCode, PositionCode, FullName, Email, DateOfBirth, Gender, SocialNumber, 
+                        SocialDate, SocialPlace, MobileNumber, Address, LandlineNumber, BankAccount, BankName, BranchName, CreatedDate, CreatedBy, ModifiedDate, ModifiedBy) 
+                        VALUES (@EmployeeId, @EmployeeCode, @DepartmentCode, @PositionCode, @FullName, @Email, @DateOfBirth, @Gender, @SocialNumber, @SocialDate, 
+                        @SocialPlace, @MobileNumber, @Address, @LandlineNumber, @BankAccount, @BankName, @BranchName, @CreatedDate, @CreatedBy, @ModifiedDate, @ModifiedBy);
                         SELECT * FROM Employee WHERE EmployeeCode = @EmployeeCode";
                 var result = connection.Execute(sql, dynamicParameters);
                 return result;
@@ -95,8 +115,11 @@ namespace Misa.Infrastructure.Repository
             using (var connection = new MySqlConnection(_connectionString))
             {
                 var sql = @"UPDATE Employee 
-                    SET FullName = @FullName, Email = @Email, MobileNumber = @MobileNumber, SocialNumber = @SocialNumber 
-                    WHERE EmployeeCode = @EmployeeCode;";
+                    SET DepartmentCode = @DepartmentCode, PositionCode = @PositionCode,
+                    FullName = @FullName, Email = @Email, DateOfBirth = @DateOfBirth, Gender = @Gender, SocialNumber = @SocialNumber, SocialDate = @SocialDate, 
+                    SocialPlace = @SocialPlace, MobileNumber = @MobileNumber, Address = @Address, LandlineNumber = @LandlineNumber, BankAccount = @BankAccount, 
+                    BankName = @BankName, BranchName = @BranchName, CreatedDate = @CreatedDate, CreatedBy = @CreatedBy, ModifiedDate = @ModifiedDate, ModifiedBy = @ModifiedBy
+                    WHERE EmployeeCode = @EmployeeCode";
                 var result = connection.Execute(sql, dynamicParameters);
                 return result;
             }

@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using static Dapper.SqlMapper;
 using System.Diagnostics;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata;
+using System.Text.RegularExpressions;
 
 namespace MISA.Core.Services
 {
@@ -20,37 +23,51 @@ namespace MISA.Core.Services
         {
             _employeeRepository = employeeRepository;
         }
-        public int InsertionValidation(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
 
-        public int SearchValidation(Employee employee)
+        public int EmployeeDeleteValidation(string employeeCode)
         {
-            throw new NotImplementedException();
-        }
-
-        public int UpdateionValidation(Employee employee)
-        {
-            throw new NotImplementedException();
-        }
-        /*
-        public int CheckNull(Employee employee) {
+            var isDuplidate = _employeeRepository.CheckDupEmployeeCode(employeeCode);
+            if (!isDuplidate)
             {
-                if (employee == null)
-                    return 1;
+                throw new Exception();
+            }
+            var result = _employeeRepository.Delete(employeeCode);
+            return result;
+        }
 
-                var properties = typeof(Employee).GetProperties();
-                var propNotEmpty = properties.Where(p => Attribute.);
-
-                foreach (PropertyInfo props in propNotEmpty)
-                {
-                    Debug.WriteLine(props.Name);
-                    // Skip properties that are allowed to be                     
-                }
+        public int EmployeeInsertionValidation(Employee employee)
+        {
+            var isDuplidate = _employeeRepository.CheckDupEmployeeCode(employee.EmployeeCode);
+            if (isDuplidate)
+            {
                 return 0;
             }
+            if (!IsValidEmail(employee.Email))
+            {
+                return 0;          
+            }
+            var result = _employeeRepository.Insert(employee);
+            return result;
         }
-        */
+
+        public int EmployeeUpdateiValidation(Employee employee)
+        {
+            var isDuplidate = _employeeRepository.CheckDupEmployeeCode(employee.EmployeeCode);
+            if (!isDuplidate)
+            {
+                return 0;
+            }
+            if (!IsValidEmail(employee.Email))
+            {
+                return 0;
+            }
+            var result = _employeeRepository.Update(employee);
+            return result;
+        }
+        bool IsValidEmail(string email)
+        {
+            string regex = @"^[^@\s]+@[^@\s]+\.(com|net|org|gov)$";
+            return Regex.IsMatch(email, regex, RegexOptions.IgnoreCase);
+        }
     }
 }

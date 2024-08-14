@@ -9,11 +9,9 @@ namespace MISA.Core.Interfaces
 {
     public interface IEmployeeService
     {
-        int InsertionValidation(Employee employee);
-
-        int UpdateionValidation(Employee employee);
-
-        int SearchValidation(Employee employee);
+        int EmployeeInsertionValidation(Employee employee);
+        int EmployeeUpdateiValidation(Employee employee);
+        int EmployeeDeleteValidation(string employeeCode);
 
         //object ImportService(iFormFile excelFile);
     }

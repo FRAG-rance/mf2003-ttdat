@@ -14,6 +14,10 @@ namespace MISA.Core.Entities
         [Required]
         public string EmployeeCode { get; set; }
         [Required]
+        public string PositionCode { get; set; }
+        [Required]
+        public string DepartmentCode { get; set; }
+        [Required]
         public string FullName { get; set; }
         [AllowNull]
         public DateTime? DateOfBirth { get; set; }
@@ -38,9 +42,7 @@ namespace MISA.Core.Entities
         [AllowNull]
         public string? BankName { get; set; }
         [AllowNull]
-        public string? Branch { get; set; }
-        public Guid PositionId { get; set; }
-        public Guid DepartmentId { get; set; }
+        public string? BranchName { get; set; }
         [AllowNull]
         public DateTime? CreatedDate { get; set; }
         [AllowNull]

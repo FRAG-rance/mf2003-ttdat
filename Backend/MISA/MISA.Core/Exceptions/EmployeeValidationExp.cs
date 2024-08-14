@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace MISA.Core.Exceptions
 {
-    internal class EmployeeValidationExp
+    internal class EmployeeValidationExp : Exception
     {
+        string? MsgError = null;
+        public EmployeeValidationExp(string msg)
+        {
+            this.MsgError = msg;
+        }
+
+        public override string Message
+        {
+            get
+            {
+                return MsgError;
+            }
+        }
     }
 }

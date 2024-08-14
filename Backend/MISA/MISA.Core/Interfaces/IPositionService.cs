@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MISA.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace MISA.Core.Interfaces
 {
-    internal interface IPositionService
+    public interface IPositionService
     {
+        int PositionInsertionValidation(Position Position);
+        int PositionUpdateiValidation(Position Position);
+        int PositionDeleteValidation(string PositionCode);
     }
 }
