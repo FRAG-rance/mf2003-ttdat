@@ -5,6 +5,7 @@ using MySqlConnector;
 using MISA.Core.Entities;
 using System.Data;
 using MISA.Core.Interfaces;
+using MISA.Core.Exceptions;
 using MISA.Core.Services;
 using Misa.Infrastructure.Repository;
 
@@ -28,11 +29,26 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeRepository.GetAll();
-                return Ok(data);
+                return StatusCode(200,data);
+            }
+            catch (ValidationExp ex)
+            {
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    userMsg = ex.Message,
+                    data = ex.Data,
+                };
+                return BadRequest(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    data = ex.InnerException,
+                };
+                return StatusCode(500, response);
             }
         }
         
@@ -42,11 +58,26 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeRepository.Get(code);
-                return Ok(data);
+                return StatusCode(200, data);
+            }
+            catch (ValidationExp ex)
+            {
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    userMsg = ex.Message,
+                    data = ex.Data,
+                };
+                return BadRequest(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    data = ex.InnerException,
+                };
+                return StatusCode(500, response);
             }
         }
         
@@ -56,12 +87,36 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeService.EmployeeInsertionValidation(employee);
-                return Ok(data);
+                if (data.Success == true)
+                {
+                    return StatusCode(200, data);
+                }
+                else
+                {
+                    return StatusCode(400, data);
+                }
+            }
+            catch (ValidationExp ex)
+            {
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    userMsg = ex.Message,
+                    data = ex.Data,
+                };
+                return BadRequest(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    data = ex.InnerException,
+                };
+                return StatusCode(500, response);
             }
+
+
         }
         
         [HttpPut("{employee.EmployeeCode}")]
@@ -70,11 +125,33 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeService.EmployeeUpdateiValidation(employee);
-                return Ok(data);
+                if (data.Success == true)
+                {
+                    return StatusCode(200, data);
+                }
+                else
+                {
+                    return StatusCode(400, data);
+                }
+            }
+            catch (ValidationExp ex)
+            {
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    userMsg = ex.Message,
+                    data = ex.Data,
+                };
+                return BadRequest(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    data = ex.InnerException,
+                };
+                return StatusCode(500, response);
             }
         }
 
@@ -84,11 +161,33 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeService.EmployeeDeleteValidation(code);
-                return Ok(data);
+                if (data.Success == true)
+                {
+                    return StatusCode(200, data);
+                }
+                else
+                {
+                    return StatusCode(400, data);
+                };
+            }
+            catch (ValidationExp ex)
+            {
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    userMsg = ex.Message,
+                    data = ex.Data,
+                };
+                return BadRequest(response);
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                var response = new
+                {
+                    DevMsg = ex.Message,
+                    data = ex.InnerException,
+                };
+                return StatusCode(500, response);
             }
         }
         

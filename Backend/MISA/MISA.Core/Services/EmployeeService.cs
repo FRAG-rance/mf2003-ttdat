@@ -1,5 +1,6 @@
 ﻿using MISA.Core.Entities;
 using MISA.Core.Interfaces;
+using MISA.Core.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -24,45 +25,58 @@ namespace MISA.Core.Services
             _employeeRepository = employeeRepository;
         }
 
-        public int EmployeeDeleteValidation(string employeeCode)
+        public ServiceResult EmployeeDeleteValidation(string employeeCode)
         {
             var isDuplidate = _employeeRepository.CheckDupEmployeeCode(employeeCode);
             if (!isDuplidate)
             {
-                throw new Exception();
+                return new ServiceResult { Success = false };
             }
             var result = _employeeRepository.Delete(employeeCode);
-            return result;
+            return new ServiceResult
+            {
+                Success = true,
+                Data = result
+            };
+            
         }
 
-        public int EmployeeInsertionValidation(Employee employee)
+        public ServiceResult EmployeeInsertionValidation(Employee employee)
         {
             var isDuplidate = _employeeRepository.CheckDupEmployeeCode(employee.EmployeeCode);
             if (isDuplidate)
             {
-                return 0;
+                return new ServiceResult { Success = false };
             }
             if (!IsValidEmail(employee.Email))
             {
-                return 0;          
+                return new ServiceResult { Success = false };
             }
             var result = _employeeRepository.Insert(employee);
-            return result;
+            return new ServiceResult
+            {
+                Success = true,
+                Data = result
+            };
         }
 
-        public int EmployeeUpdateiValidation(Employee employee)
+        public ServiceResult EmployeeUpdateiValidation(Employee employee)
         {
             var isDuplidate = _employeeRepository.CheckDupEmployeeCode(employee.EmployeeCode);
             if (!isDuplidate)
             {
-                return 0;
+                return new ServiceResult { Success = false };
             }
             if (!IsValidEmail(employee.Email))
             {
-                return 0;
+                return new ServiceResult { Success = false };
             }
             var result = _employeeRepository.Update(employee);
-            return result;
+            return new ServiceResult
+            {
+                Success = true,
+                Data = result
+            };
         }
         bool IsValidEmail(string email)
         {

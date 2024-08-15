@@ -1,4 +1,5 @@
-﻿using MISA.Core.Entities;
+﻿using MISA.Core.DTOs;
+using MISA.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace MISA.Core.Interfaces
 {
     public interface IEmployeeService
     {
-        int EmployeeInsertionValidation(Employee employee);
-        int EmployeeUpdateiValidation(Employee employee);
-        int EmployeeDeleteValidation(string employeeCode);
+        ServiceResult EmployeeInsertionValidation(Employee employee);
+        ServiceResult EmployeeUpdateiValidation(Employee employee);
+        ServiceResult EmployeeDeleteValidation(string employeeCode);
 
         //object ImportService(iFormFile excelFile);
     }
