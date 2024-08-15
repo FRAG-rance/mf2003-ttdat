@@ -11,7 +11,7 @@ using MySqlConnector;
 
 namespace Misa.Infrastructure.Repository
 {
-    internal class PositionRepository : IPositionRepository
+    public class PositionRepository : IPositionRepository
     {
         private readonly string _connectionString;
 

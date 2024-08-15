@@ -8,7 +8,7 @@ using MISA.Core.Interfaces;
 using MISA.Core.Services;
 using Misa.Infrastructure.Repository;
 
-namespace MISA.Controllers
+namespace MISA.Api.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]

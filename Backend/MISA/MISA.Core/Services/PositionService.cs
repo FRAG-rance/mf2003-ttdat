@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MISA.Core.Services
 {
-    internal class PositionService : IPositionService
+    public class PositionService : IPositionService
     {
         private IPositionRepository _positionRepository;
 
