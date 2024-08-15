@@ -11,6 +11,7 @@ using Dapper;
 using System.Collections;
 using static Dapper.SqlMapper;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 
 
 namespace Misa.Infrastructure.Repository
@@ -48,9 +49,9 @@ namespace Misa.Infrastructure.Repository
                 var result = connection.Execute(sql, dynamicParameters);
                 return result;
             }
-        } 
+        }
 
-        public Employee Get(string employeeCode)
+        public IEnumerable<Employee> Get(string Code)
         {
             /*
             var connection = new MySqlConnection(_connectionString);
@@ -58,13 +59,21 @@ namespace Misa.Infrastructure.Repository
             var employee = connection.QueryFirstOrDefaultAsync<Employee>(sql, new { Code = code });
             return employee;
             */
+            var sql = "";
+            if (Code.StartsWith("NV")) {
+                sql = "SELECT * FROM Employee WHERE EmployeeCode = @Code";
+            } else if (Code.StartsWith("PID")) {
+                sql = "SELECT * FROM Employee WHERE PositionCode = @Code";
+            } else if (Code.StartsWith("DID")) {
+                sql = "SELECT * FROM Employee WHERE DepartmentCode = @Code";
+            }
+            
             using (var connection = new MySqlConnection(_connectionString))
             {
-                var sql = "SELECT * FROM Employee WHERE EmployeeCode = @Code";
                 DynamicParameters dynamicParameters = new DynamicParameters();
-                dynamicParameters.Add("@Code", employeeCode);
-                var employee = connection.QueryFirstOrDefault<Employee>(sql,dynamicParameters);
-                return employee;
+                dynamicParameters.Add("@Code", Code);
+                var employees = connection.Query<Employee>(sql,dynamicParameters);
+                return employees;
             }
         }
 

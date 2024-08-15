@@ -46,7 +46,7 @@
                 <img src="./assets/icon/close-48.png" alt="" class="icon">
             </button>
         </div>
-        <form>
+        <form id="employee-form">
             <div class="grid">
                 <div class="grid-u-1-2">
                     <div class="px-1">
@@ -74,7 +74,6 @@
                         <div class="radio-group">
                             <label><input class="radio-group-label" type="radio" name="gender" value="nam"> Nam</label>
                             <label><input class="radio-group-label" type="radio" name="gender" value="nu"> Nữ</label>
-                            <label><input class="radio-group-label" type="radio" name="gender" value="khac"> Khác</label>
                         </div>
                     </div>
                 </div>
@@ -201,7 +200,7 @@
 
 
     
-    <div class="flex">
+    <div class="flex ">
         <nav class="flex" id="sidebarNav">
             <ul>
                 <li class="nav-item">
@@ -280,7 +279,7 @@
 
                 
                 <div class="pagination ai-center">
-                    <span>Tổng: 100</span>
+                    <span class="total-page"></span>
                     <div class="left-pagination flex ai-center">
                         <span>Số bản ghi/trang</span>
                         <select>
@@ -300,6 +299,6 @@
             
         </main>
     </div>
-    <script src="./js/employees/employees.js"></script>
+    <script type="module" src="./js/index.js"></script>
 </body>
 </html>
