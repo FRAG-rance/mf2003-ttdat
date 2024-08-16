@@ -17,6 +17,7 @@ export default class Employee {
             const response = await fetch(`http://localhost:5017/api/v1/Employees/${string}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             this.searchResult = await response.json();
+            console.log(this.searchResult);
             return this.searchResult;
         } catch (error) {
             console.log(error);
@@ -25,12 +26,14 @@ export default class Employee {
 
     async deleteEmployee(string) {
         try {
+            console.log(`http://localhost:5017/api/v1/Employees/${string}`);
             const response = await fetch(`http://localhost:5017/api/v1/Employees/${string}`, {
                 method: 'DELETE'
             });
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            console.log("Employee deleted successfully");
         } catch (error) {
-            console.log(error);
+            console.error("Error deleting employee:", error);
         }
     }
 
@@ -46,14 +49,13 @@ export default class Employee {
                 body: JSON.stringify(employee)
             });
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            console.log("Employee added successfully");
         } catch (error) {
-            console.log(error);
+            console.error("Error adding employee:", error);
         }
     }
     async editEmployee(employee) {
         try {
-            console.log("esven get here")
-            console.log(JSON.stringify(employee));
             const response = fetch(`http://localhost:5017/api/v1/Employees/${employee.EmployeeCode}`, {
                 method: 'PUT',
                 headers: {
@@ -61,9 +63,10 @@ export default class Employee {
                 },
                 body: JSON.stringify(employee)
             });
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            console.log("Employee edited successfully");
+            // if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         } catch (error) {
-            console.log(error);
+            console.error("Error editing employee:", error);
         }
     }
 }

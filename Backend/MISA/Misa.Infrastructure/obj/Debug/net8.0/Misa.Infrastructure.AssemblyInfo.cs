@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Misa.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d57f6ac060f88038b7a88928f6cc634221c762e9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86af9d96e7bb8bd4b4759d7616693d7e555088d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Misa.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Misa.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

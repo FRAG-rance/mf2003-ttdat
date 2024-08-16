@@ -1,60 +1,49 @@
 import Employee from "./Component/employee.js";
-
+import Department from "./Component/department.js";
+import Position from "./Component/position.js";
 
 window.onload = function () {
     new employeePage();
   };
   
   class employeePage {
-    pageTile = "Quản lý nhân viên ";
     employeeService = new Employee();
+    departmentService = new Department();
+    positionService = new Position();
+
     itemsPerPage = 10;
     currentPage = 1;
     tableData = [];
+    departmentList = [];
     lastSelectedCode;
     isEditMode = false;
+
 
     constructor() {
         this.init();
     }
 
     async init() {
-        await this.employeeService.getEmployees();
-        this.tableData = this.employeeService.allEmployees;
+        await this.tableRefresh();
         this.setupPagination();
         this.initEvents(); 
         this.updateTable();
     }
 
+    async tableRefresh() {
+        await this.departmentService.getDepartments();
+        this.departmentList = this.departmentService.allDepartments;
+        
+        await this.positionService.getPositions();
+        this.departmentList = this.positionService.allPositions;
+        
+        await this.employeeService.getEmployees();
+        this.tableData = this.employeeService.allEmployees;
+    }
+
     showDeleteConfirmation() {
         let confirmationDialog = document.querySelector('.del-confirmation');
         confirmationDialog.classList.remove('hidden');
-
-        document.querySelector('.del-confirmation .dialog-close-btn').addEventListener('click', () => {
-            try {
-                confirmationDialog.classList.add('hidden');
-            } catch (error) {
-                console.error(error);
-            }
-        });
-
-        document.querySelector('.del-confirmation .no-dialog-btn').addEventListener('click', () => {
-            try {
-                confirmationDialog.classList.add('hidden');
-            } catch (error) {
-                console.error(error);
-            }
-        });
-
-        document.querySelector('.del-confirmation .yes-dialog-btn').addEventListener('click', () => {
-            try {
-                console.log(this.lastSelectedCode);
-                //this.employeeService.deleteEmployee(this.lastSelectedCode);
-                confirmationDialog.classList.add('hidden');
-            } catch (error) {
-                console.error(error);
-            }
-        });
     }
 
     toggleAddForm() {
@@ -171,11 +160,12 @@ window.onload = function () {
             row.querySelector('.edit-emp-btn').addEventListener('click', () => {
                 this.isEditMode = true;
                 this.selectRow(item);
-                this.handleEdit()
+                this.handleView();
             });
             row.querySelector('.view-emp-btn').addEventListener('click', () => {
+                this.isEditMode = false;
                 this.selectRow(item);
-                this.handleView()
+                this.handleView();
             });
             row.querySelector('.del-emp-btn').addEventListener('click', () => {
                 this.selectRow(item);
@@ -215,7 +205,6 @@ window.onload = function () {
         this.currentPage = 1
         await this.employeeService.getEmployee(key);
         this.tableData = this.employeeService.searchResult;
-        console.log(this.tableData);
         this.updateTable();
     }
 
@@ -228,7 +217,8 @@ window.onload = function () {
         this.showFormButton();
         if(!this.generateDialog()) {
             let gender = this.radioChecker();
-            console.log(gender);
+            let dob = document.querySelector('#employee-birthdate').value;
+            let socialDate = document.querySelector('#employee-sDate').value;
             let tempEmployee = {
                 "EmployeeCode": `${document.querySelector('#employee-Id').value}`,
                 "PositionCode": "PID00001",
@@ -237,41 +227,28 @@ window.onload = function () {
                 "SocialNumber": `${document.querySelector('#employee-socials').value}`,
                 "Email": `${document.querySelector('#email').value}`,
                 "MobileNumber": `${document.querySelector('#employee-phoneNo').value}`,
-                "DateOfBirth": `${document.querySelector('#employee-birthdate').value}`,
-                "Gender": `${gender}`,
                 "SocialPlace": `${document.querySelector('#employee-sPlace').value}`,
-                "SocialDate": `${document.querySelector('#employee-sDate').value}`,
                 "Address": `${document.querySelector('#employee-address').value}`,
                 "LandlineNumber": `${document.querySelector('#employee-landlineNo').value}`,
                 "BankAccount": `${document.querySelector('#employee-bankAcc').value}`,
                 "BankName": `${document.querySelector('#employee-bankName').value}`,
                 "BranchName": `${document.querySelector('#employee-bankBranch').value}`,
             }
+            tempEmployee.Gender = gender;
+            this.handleDateSubmision(dob,tempEmployee,"DateOfBirth");
+            this.handleDateSubmision(socialDate,tempEmployee, "SocialDate");
             this.employeeService.addEmployee(tempEmployee);
         }
     }
 
     async handleEdit() {
         this.showFormButton();
-        let tmp = await this.employeeService.getEmployee(this.lastSelectedCode);
-        
-        document.querySelector('#employee-Id').value = tmp[0].EmployeeCode;
-        document.querySelector('#employee-name').value = tmp[0].FullName;
-        document.querySelector('#employee-bankBranch').value = tmp[0].BranchName;
-        document.querySelector('#employee-bankName').value = tmp[0].BankName;
-        document.querySelector('#employee-bankAcc').value = tmp[0].BankAccount;
-        document.querySelector('#employee-landlineNo').value = tmp[0].LandlineNumber;
-        document.querySelector('#employee-sDate').value = this.convertDate(tmp[0].SocialDate);
-        document.querySelector('#employee-address').value = tmp[0].Address;
-        document.querySelector('#employee-sPlace').value = tmp[0].SocialPlace;
-        document.querySelector('#employee-birthdate').value = this.convertDate(tmp[0].DateOfBirth);
-        document.querySelector('#employee-phoneNo').value = tmp[0].MobileNumber;
-        document.querySelector('#employee-socials').value = tmp[0].SocialNumber;
-        document.querySelector('#email').value = tmp[0].Email;
+        this.handleView();
 
         if(!this.generateDialog()) {
             let gender = this.radioChecker();
-            console.log(gender);
+            let dob = document.querySelector('#employee-birthdate').value;
+            let socialDate = document.querySelector('#employee-sDate').value;
             let tempEmployee = {
                 "EmployeeCode": `${document.querySelector('#employee-Id').value}`,
                 "PositionCode": "PID00001",
@@ -280,40 +257,39 @@ window.onload = function () {
                 "SocialNumber": `${document.querySelector('#employee-socials').value}`,
                 "Email": `${document.querySelector('#email').value}`,
                 "MobileNumber": `${document.querySelector('#employee-phoneNo').value}`,
-                "DateOfBirth": `${document.querySelector('#employee-birthdate').value}`,
-                "Gender": `${gender}`,
                 "SocialPlace": `${document.querySelector('#employee-sPlace').value}`,
-                "SocialDate": `${document.querySelector('#employee-sDate').value}`,
                 "Address": `${document.querySelector('#employee-address').value}`,
                 "LandlineNumber": `${document.querySelector('#employee-landlineNo').value}`,
                 "BankAccount": `${document.querySelector('#employee-bankAcc').value}`,
                 "BankName": `${document.querySelector('#employee-bankName').value}`,
                 "BranchName": `${document.querySelector('#employee-bankBranch').value}`,
             }
-            this.employeeService.editEmployee(tempEmployee);
+            tempEmployee.Gender = gender;
+            this.handleDateSubmision(dob,tempEmployee,"DateOfBirth");
+            this.handleDateSubmision(socialDate,tempEmployee, "SocialDate");
+            await this.employeeService.editEmployee(tempEmployee);
         }
-
         this.toggleAddForm();
     }
 
     async handleView() {
         let tmp = await this.employeeService.getEmployee(this.lastSelectedCode);
-        console.log(tmp);
-        this.hideFormButton();
+        if(tmp[0].Gender != null) {
+            document.querySelector(`input[name="gender"][value="${tmp[0].Gender}"]`).checked = true;
+        }
         document.querySelector('#employee-Id').value = tmp[0].EmployeeCode;
         document.querySelector('#employee-name').value = tmp[0].FullName;
         document.querySelector('#employee-bankBranch').value = tmp[0].BranchName;
         document.querySelector('#employee-bankName').value = tmp[0].BankName;
         document.querySelector('#employee-bankAcc').value = tmp[0].BankAccount;
         document.querySelector('#employee-landlineNo').value = tmp[0].LandlineNumber;
-        document.querySelector('#employee-sDate').value = this.convertDate(tmp[0].SocialDate) ;
+        document.querySelector('#employee-sDate').value = tmp[0].SocialDate ? this.convertDate(tmp[0].SocialDate) : tmp[0].SocialDate ;
         document.querySelector('#employee-address').value = tmp[0].Address;
         document.querySelector('#employee-sPlace').value = tmp[0].SocialPlace;
-        document.querySelector('#employee-birthdate').value = this.convertDate(tmp[0].DateOfBirth) ?? "";
+        document.querySelector('#employee-birthdate').value = tmp[0].DateOfBirth ? this.convertDate(tmp[0].DateOfBirth) :tmp[0].DateoBirth;
         document.querySelector('#employee-phoneNo').value = tmp[0].MobileNumber;
         document.querySelector('#employee-socials').value = tmp[0].SocialNumber;
         document.querySelector('#email').value = tmp[0].Email;
-
         this.toggleAddForm();
     }
 
@@ -325,7 +301,6 @@ window.onload = function () {
                 return i;
             }
         } 
-        return 0;
     }
 
     hideFormButton() {
@@ -340,9 +315,11 @@ window.onload = function () {
 
     initEvents() {
       try {       
+        let confirmationDialog = document.querySelector('.del-confirmation');
         //khởi tạo nút add form
         document.querySelector('#table-add-button').addEventListener('click', () => {
             this.isEditMode = false;
+            this.showFormButton();
             this.toggleAddForm();            
         });
 
@@ -375,18 +352,18 @@ window.onload = function () {
                 console.error(error);
             }
         });
-
-        document.querySelector('#search-clear-button').addEventListener('click', () => {
+        //nút reset
+        document.querySelector('#search-clear-button').addEventListener('click', async () => {
             try {
                 const searchBar = document.querySelector("#searchbar");
                 searchBar.value = '';
-                this.tableData = this.employeeService.allEmployees;
+                await this.tableRefresh();
                 this.updateTable();
             } catch(error) {
                 console.error(error);
             }
         })
-
+        //nút tìm kiếm
         document.querySelector('#search-button').addEventListener('click', () => {
             try {
                 let key = document.querySelector('#searchbar').value;
@@ -395,11 +372,39 @@ window.onload = function () {
                 console.error(error);
             }
         })
+        //xoá dialog đóng
+        document.querySelector('.del-confirmation .dialog-close-btn').addEventListener('click', () => {
+            try {
+                
+                confirmationDialog.classList.add('hidden');
+            } catch (error) {
+                console.error(error);
+            }
+        });
+        //xoá dialog không
+        document.querySelector('.del-confirmation .no-dialog-btn').addEventListener('click', () => {
+            try {
+                
+                confirmationDialog.classList.add('hidden');
+            } catch (error) {
+                console.error(error);
+            }
+        });
+        //xoá dialog có
+        document.querySelector('.del-confirmation .yes-dialog-btn').addEventListener('click', () => {
+            try {
+                console.log(this.lastSelectedCode);
+                this.employeeService.deleteEmployee(this.lastSelectedCode);
+                confirmationDialog.classList.add('hidden');
+            } catch (error) {
+                console.error(error);
+            }
+        });
 
-        document.querySelector('#employee-form').addEventListener('submit', function(event) {
+        // submit form
+        document.querySelector('#employee-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent the form from reloading the page
             if(this.isEditMode) {
-                console.log("edit")
                 this.handleEdit();
             } else {
                 console.log("add")
@@ -411,6 +416,13 @@ window.onload = function () {
       } catch(error) {
         console.log(error);
       }
+    }
+
+    handleDateSubmision(dateString, object, propName) {
+        if (dateString) {
+            let formattedDate = new Date(dateString).toISOString(); // Formats to "YYYY-MM-DDTHH:MM:SSZ"
+            object[propName] = formattedDate;
+        }
     }
 
     convertDate(dateTimeString) {
