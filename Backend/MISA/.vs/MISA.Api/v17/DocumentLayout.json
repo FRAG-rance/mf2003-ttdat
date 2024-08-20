@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\controllers\\departmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|c:\\users\\1pho2\\mf2003-ttdat\\backend\\misa\\misa\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0A83DBF2-9F34-4424-A356-C2A35054FA60}|MISA\\MISA.Api.csproj|solutionrelative:misa\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -128,11 +132,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "DepartmentController.cs",
+              "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\DepartmentController.cs",
+              "RelativeDocumentMoniker": "MISA\\Controllers\\DepartmentController.cs",
+              "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\DepartmentController.cs",
+              "RelativeToolTip": "MISA\\Controllers\\DepartmentController.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAwwEUAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T07:22:59.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "EmployeeService.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Services\\EmployeeService.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Services\\EmployeeService.cs",
@@ -140,25 +157,24 @@
               "RelativeToolTip": "MISA.Core\\Services\\EmployeeService.cs",
               "ViewState": "AQIAAD4AAAAAAAAAAAAwwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-16T17:08:34.433Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-16T17:08:34.433Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EmployeesController.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\EmployeesController.cs",
               "RelativeDocumentMoniker": "MISA\\Controllers\\EmployeesController.cs",
               "ToolTip": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Controllers\\EmployeesController.cs",
               "RelativeToolTip": "MISA\\Controllers\\EmployeesController.cs",
-              "ViewState": "AQIAAGkAAAAAAAAAAAAAwHkAAAAsAAAA",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAAwIYAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-05T15:47:57.673Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "EmployeeRepository.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\Misa.Infrastructure\\Repository\\EmployeeRepository.cs",
               "RelativeDocumentMoniker": "Misa.Infrastructure\\Repository\\EmployeeRepository.cs",
@@ -166,12 +182,11 @@
               "RelativeToolTip": "Misa.Infrastructure\\Repository\\EmployeeRepository.cs",
               "ViewState": "AQIAAFgAAAAAAAAAAAAcwHAAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T15:14:25.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-11T15:14:25.976Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IEmployeeRepository.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IEmployeeRepository.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Interfaces\\IEmployeeRepository.cs",
@@ -183,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ServiceResult.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\DTOs\\ServiceResult.cs",
               "RelativeDocumentMoniker": "MISA.Core\\DTOs\\ServiceResult.cs",
@@ -195,7 +210,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Employee.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Employee.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Entities\\Employee.cs",
@@ -203,12 +218,11 @@
               "RelativeToolTip": "MISA.Core\\Entities\\Employee.cs",
               "ViewState": "AQIAABIAAAAAAAAAAIA0wCAAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-14T11:31:14.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-14T11:31:14.511Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Program.cs",
               "RelativeDocumentMoniker": "MISA\\Program.cs",
@@ -220,7 +234,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ValidationExp.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Exceptions\\ValidationExp.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Exceptions\\ValidationExp.cs",
@@ -232,7 +246,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "IDepartmentService.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IDepartmentService.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Interfaces\\IDepartmentService.cs",
@@ -244,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "IPositionService.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IPositionService.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Interfaces\\IPositionService.cs",
@@ -256,7 +270,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "DepartmentService.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Services\\DepartmentService.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Services\\DepartmentService.cs",
@@ -268,7 +282,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "IPositionRepository.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Interfaces\\IPositionRepository.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Interfaces\\IPositionRepository.cs",
@@ -280,7 +294,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "Position.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Position.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Entities\\Position.cs",
@@ -292,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Department.cs",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\Entities\\Department.cs",
               "RelativeDocumentMoniker": "MISA.Core\\Entities\\Department.cs",
@@ -304,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "MISA.csproj.nuget.g.props",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\MISA.csproj.nuget.g.props",
               "RelativeDocumentMoniker": "MISA\\obj\\MISA.csproj.nuget.g.props",
@@ -316,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "MISA.csproj.nuget.g.targets",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\MISA.csproj.nuget.g.targets",
               "RelativeDocumentMoniker": "MISA\\obj\\MISA.csproj.nuget.g.targets",
@@ -328,7 +342,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "project.assets.json",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\project.assets.json",
               "RelativeDocumentMoniker": "MISA\\obj\\project.assets.json",
@@ -340,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "project.nuget.cache",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\project.nuget.cache",
               "RelativeDocumentMoniker": "MISA\\obj\\project.nuget.cache",
@@ -352,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "MISA.csproj.nuget.dgspec.json",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\MISA.csproj.nuget.dgspec.json",
               "RelativeDocumentMoniker": "MISA\\obj\\MISA.csproj.nuget.dgspec.json",
@@ -364,7 +378,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "MISA.Api.csproj.nuget.g.targets",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\MISA.Api.csproj.nuget.g.targets",
               "RelativeDocumentMoniker": "MISA\\obj\\MISA.Api.csproj.nuget.g.targets",
@@ -376,7 +390,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "MISA.Api.csproj.nuget.g.props",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\MISA.Api.csproj.nuget.g.props",
               "RelativeDocumentMoniker": "MISA\\obj\\MISA.Api.csproj.nuget.g.props",
@@ -388,7 +402,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "MISA.Api.csproj.nuget.dgspec.json",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\obj\\MISA.Api.csproj.nuget.dgspec.json",
               "RelativeDocumentMoniker": "MISA\\obj\\MISA.Api.csproj.nuget.dgspec.json",
@@ -400,7 +414,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "Sdk.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\Sdks\\Microsoft.NET.Sdk.Web\\Sdk\\Sdk.targets",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.303\\Sdks\\Microsoft.NET.Sdk.Web\\Sdk\\Sdk.targets",
@@ -413,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "Sdk.props",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\Sdks\\Microsoft.NET.Sdk.Web\\Sdk\\Sdk.props",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.303\\Sdks\\Microsoft.NET.Sdk.Web\\Sdk\\Sdk.props",
@@ -426,7 +440,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Misa.Infrastructure.csproj",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\Misa.Infrastructure\\Misa.Infrastructure.csproj",
               "RelativeDocumentMoniker": "Misa.Infrastructure\\Misa.Infrastructure.csproj",
@@ -438,7 +452,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "MISA.http",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.http",
               "RelativeDocumentMoniker": "MISA\\MISA.http",
@@ -450,7 +464,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "MISA.Api.csproj",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.Api.csproj",
               "RelativeDocumentMoniker": "MISA\\MISA.Api.csproj",
@@ -462,7 +476,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "MISA\\Properties\\launchSettings.json",
@@ -474,7 +488,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "MISA.Core.csproj",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA.Core\\MISA.Core.csproj",
               "RelativeDocumentMoniker": "MISA.Core\\MISA.Core.csproj",
@@ -486,7 +500,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "MISA.Api",
               "DocumentMoniker": "C:\\Users\\1pho2\\mf2003-ttdat\\Backend\\MISA\\MISA\\MISA.Api.csproj",
               "RelativeDocumentMoniker": "MISA\\MISA.Api.csproj",

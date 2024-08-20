@@ -6,7 +6,13 @@ window.onload = function () {
     new employeePage();
   };
   
-  class employeePage {
+const OPERATION = {
+    0: "VIEW",
+    1: "ADD",
+    2: "EDIT",
+}
+  
+class employeePage {
     employeeService = new Employee();
     departmentService = new Department();
     positionService = new Position();
@@ -15,10 +21,10 @@ window.onload = function () {
     currentPage = 1;
     tableData = [];
     departmentList = [];
+    positionList = [];
     lastSelectedCode;
-    isEditMode = false;
-
-
+    currOperation;
+    
     constructor() {
         this.init();
     }
@@ -27,7 +33,13 @@ window.onload = function () {
         await this.tableRefresh();
         this.setupPagination();
         this.initEvents(); 
+        this.setupComboBox('employee-dept', this.departmentList, 'DepartmentName', 'DepartmentCode');
+        this.setupComboBox('employee-position', this.positionList, 'PositionName', 'PositionCode');
         this.updateTable();
+    }
+
+    static get OPERATION() {
+        return OPERATION;
     }
 
     async tableRefresh() {
@@ -35,7 +47,7 @@ window.onload = function () {
         this.departmentList = this.departmentService.allDepartments;
         
         await this.positionService.getPositions();
-        this.departmentList = this.positionService.allPositions;
+        this.positionList = this.positionService.allPositions;
         
         await this.employeeService.getEmployees();
         this.tableData = this.employeeService.allEmployees;
@@ -125,7 +137,9 @@ window.onload = function () {
         document.querySelector('#employee-birthdate').value = '';
         document.querySelector('#employee-phoneNo').value = '';
         document.querySelector('#employee-socials').value = '';
-        document.querySelector('#email').value = '';
+        document.querySelector('#email').value = ''
+        document.querySelector('#employee-dept').value = ''
+        document.querySelector('#employee-position').value = '';
     }
 
     renderTable(pageData) {
@@ -158,12 +172,12 @@ window.onload = function () {
                             </td>`;
             i++;
             row.querySelector('.edit-emp-btn').addEventListener('click', () => {
-                this.isEditMode = true;
+                this.currOperation = OPERATION[2];
                 this.selectRow(item);
                 this.handleView();
             });
             row.querySelector('.view-emp-btn').addEventListener('click', () => {
-                this.isEditMode = false;
+                this.currOperation = OPERATION[0];
                 this.selectRow(item);
                 this.handleView();
             });
@@ -180,24 +194,29 @@ window.onload = function () {
         document.querySelector('.total-page').innerHTML = `Tổng số trang: ${totalPages}`;
         const startIndex = (this.currentPage - 1) * this.itemsPerPage;
         const endIndex = startIndex + this.itemsPerPage;
-        const pageData = data.slice(startIndex, endIndex);
-        this.renderTable(pageData);
+        const pageData = data.slice(startIndex, endIndex);        
+        if(this.currentPage < 1 )
+        {
+            this.currentPage = 1;
+        } else if (this.currentPage > totalPages) {
+            this.currentPage = totalPages;
+        } else {
+            this.renderTable(pageData);
+        }
     }
       
-    async setupPagination() {
+    setupPagination() {
         let decreasePage = document.querySelector('#decrease-page');
         let increasePage = document.querySelector('#increase-page');
 
         decreasePage.addEventListener('click', () => { 
             this.currentPage = this.currentPage - 1;
             this.updateTable();
-            console.log(this.currentPage);
         });
 
         increasePage.addEventListener('click', () => { 
             this.currentPage = this.currentPage + 1;
             this.updateTable();
-            console.log(this.currentPage);
         });
     }
 
@@ -212,17 +231,36 @@ window.onload = function () {
         this.lastSelectedCode = item.EmployeeCode;
     }
 
+    setupComboBox(element, list, propName, propValue) {
+        const selectElement = document.getElementById(element);
+        list.forEach(obj => {
+            const option = document.createElement('option');
+            option.value = obj[propValue];  // Set the value attribute
+            option.textContent = obj[propName];  // Set the visible text
+            selectElement.appendChild(option);
+        });
+    }
 
-    handleAdd() {
-        this.showFormButton();
+    toggleButton() {
+        if(this.currOperation == "VIEW") {
+            let button = document.querySelector('.button-group');
+            button.classList.add('hidden');
+        } else {
+            let button = document.querySelector('.button-group');
+            button.classList.remove('hidden');
+        }
+        
+    }
+
+    async handleAdd() {
         if(!this.generateDialog()) {
             let gender = this.radioChecker();
             let dob = document.querySelector('#employee-birthdate').value;
             let socialDate = document.querySelector('#employee-sDate').value;
+            let department = document.querySelector('#employee-dept').value;
+            let position = document.querySelector('#employee-position').value;
             let tempEmployee = {
                 "EmployeeCode": `${document.querySelector('#employee-Id').value}`,
-                "PositionCode": "PID00001",
-                "DepartmentCode": "DID-00001",
                 "FullName": `${document.querySelector('#employee-name').value}`,
                 "SocialNumber": `${document.querySelector('#employee-socials').value}`,
                 "Email": `${document.querySelector('#email').value}`,
@@ -235,24 +273,24 @@ window.onload = function () {
                 "BranchName": `${document.querySelector('#employee-bankBranch').value}`,
             }
             tempEmployee.Gender = gender;
-            this.handleDateSubmision(dob,tempEmployee,"DateOfBirth");
-            this.handleDateSubmision(socialDate,tempEmployee, "SocialDate");
-            this.employeeService.addEmployee(tempEmployee);
+            this.handleComboBoxSubmission(department, tempEmployee,"DepartmentCode");
+            this.handleComboBoxSubmission(position,tempEmployee,"PositionCode");
+            this.handleDateSubmission(dob,tempEmployee,"DateOfBirth");
+            this.handleDateSubmission(socialDate,tempEmployee, "SocialDate");
+            await this.employeeService.addEmployee(tempEmployee);
         }
     }
 
     async handleEdit() {
-        this.showFormButton();
         this.handleView();
-
         if(!this.generateDialog()) {
             let gender = this.radioChecker();
             let dob = document.querySelector('#employee-birthdate').value;
             let socialDate = document.querySelector('#employee-sDate').value;
+            let department = document.querySelector('#employee-dept').value;
+            let position = document.querySelector('#employee-position').value;
             let tempEmployee = {
                 "EmployeeCode": `${document.querySelector('#employee-Id').value}`,
-                "PositionCode": "PID00001",
-                "DepartmentCode": "DID-00001",
                 "FullName": `${document.querySelector('#employee-name').value}`,
                 "SocialNumber": `${document.querySelector('#employee-socials').value}`,
                 "Email": `${document.querySelector('#email').value}`,
@@ -265,14 +303,17 @@ window.onload = function () {
                 "BranchName": `${document.querySelector('#employee-bankBranch').value}`,
             }
             tempEmployee.Gender = gender;
-            this.handleDateSubmision(dob,tempEmployee,"DateOfBirth");
-            this.handleDateSubmision(socialDate,tempEmployee, "SocialDate");
+            this.handleComboBoxSubmission(department, tempEmployee,"DepartmentCode");
+            this.handleComboBoxSubmission(position,tempEmployee,"PositionCode");
+            this.handleDateSubmission(dob,tempEmployee,"DateOfBirth");
+            this.handleDateSubmission(socialDate,tempEmployee, "SocialDate");
             await this.employeeService.editEmployee(tempEmployee);
         }
         this.toggleAddForm();
     }
 
     async handleView() {
+        this.toggleButton();
         let tmp = await this.employeeService.getEmployee(this.lastSelectedCode);
         if(tmp[0].Gender != null) {
             document.querySelector(`input[name="gender"][value="${tmp[0].Gender}"]`).checked = true;
@@ -286,10 +327,12 @@ window.onload = function () {
         document.querySelector('#employee-sDate').value = tmp[0].SocialDate ? this.convertDate(tmp[0].SocialDate) : tmp[0].SocialDate ;
         document.querySelector('#employee-address').value = tmp[0].Address;
         document.querySelector('#employee-sPlace').value = tmp[0].SocialPlace;
-        document.querySelector('#employee-birthdate').value = tmp[0].DateOfBirth ? this.convertDate(tmp[0].DateOfBirth) :tmp[0].DateoBirth;
+        document.querySelector('#employee-birthdate').value = tmp[0].DateOfBirth ? this.convertDate(tmp[0].DateOfBirth) : tmp[0].DateoBirth;
         document.querySelector('#employee-phoneNo').value = tmp[0].MobileNumber;
         document.querySelector('#employee-socials').value = tmp[0].SocialNumber;
         document.querySelector('#email').value = tmp[0].Email;
+        document.querySelector('#employee-dept').value = tmp[0].DepartmentCode;
+        document.querySelector('#employee-position').value = tmp[0].PositionCode;
         this.toggleAddForm();
     }
 
@@ -303,23 +346,13 @@ window.onload = function () {
         } 
     }
 
-    hideFormButton() {
-        let button = document.querySelector('.button-group');
-        button.classList.add('hidden');
-    }
-
-    showFormButton() {
-        let button = document.querySelector('.button-group');
-        button.classList.remove('hidden');
-    }
-
     initEvents() {
       try {       
         let confirmationDialog = document.querySelector('.del-confirmation');
         //khởi tạo nút add form
         document.querySelector('#table-add-button').addEventListener('click', () => {
-            this.isEditMode = false;
-            this.showFormButton();
+            this.currOperation = OPERATION[1];
+            this.toggleButton();
             this.toggleAddForm();            
         });
 
@@ -344,7 +377,7 @@ window.onload = function () {
         document.querySelector('.btn-save').addEventListener('click', () => {
             try {
                 this.clearDialog();
-                this.showFormButton();
+                this.toggleButton();
                 if(!this.generateDialog()) {
                     return;
                 } 
@@ -382,10 +415,11 @@ window.onload = function () {
             }
         });
         //xoá dialog không
-        document.querySelector('.del-confirmation .no-dialog-btn').addEventListener('click', () => {
+        document.querySelector('.del-confirmation .no-dialog-btn').addEventListener('click', async () => {
             try {
-                
                 confirmationDialog.classList.add('hidden');
+                await this.tableRefresh();
+                this.updateTable();
             } catch (error) {
                 console.error(error);
             }
@@ -393,7 +427,6 @@ window.onload = function () {
         //xoá dialog có
         document.querySelector('.del-confirmation .yes-dialog-btn').addEventListener('click', () => {
             try {
-                console.log(this.lastSelectedCode);
                 this.employeeService.deleteEmployee(this.lastSelectedCode);
                 confirmationDialog.classList.add('hidden');
             } catch (error) {
@@ -404,11 +437,15 @@ window.onload = function () {
         // submit form
         document.querySelector('#employee-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Prevent the form from reloading the page
-            if(this.isEditMode) {
-                this.handleEdit();
+            this.clearDialog();
+            if(this.currOperation ==  OPERATION[2]) {
+                await this.handleEdit();
+                await this.tableRefresh();
+                this.updateTable();
             } else {
-                console.log("add")
-                this.handleAdd();
+                await this.handleAdd();
+                await this.tableRefresh();
+                this.updateTable();
             }
             this.toggleAddForm();
         }.bind(this));
@@ -418,18 +455,28 @@ window.onload = function () {
       }
     }
 
-    handleDateSubmision(dateString, object, propName) {
+    //xử lý dữ liệu ngày tháng
+    handleDateSubmission(dateString, object, propName) {
         if (dateString) {
             let formattedDate = new Date(dateString).toISOString(); // Formats to "YYYY-MM-DDTHH:MM:SSZ"
             object[propName] = formattedDate;
         }
     }
 
+    //xử lý dữ liệu combobox
+    handleComboBoxSubmission(value, object, propName) {
+        if(value) {
+            object[propName] = value;
+        }
+    }
+
+    //xử lý ngày tháng
     convertDate(dateTimeString) {
         let datePart = dateTimeString.split('T')[0];
         return datePart;
     }
 
+    //chekc input
     inputValidation() { 
         try {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -444,6 +491,8 @@ window.onload = function () {
             let EmployeeSocials = document.querySelector('#employee-socials').value;
             let EmployeeSDate = document.querySelector('#employee-sDate').value;
             let EmployeeBirthdate = document.querySelector('#employee-birthdate').value;
+            let DepartmentName = document.querySelector('#employee-dept').value;
+            let PositionName = document.querySelector('#employee-position').value;
             
             //kiểm tra input trống
             if(
@@ -504,6 +553,24 @@ window.onload = function () {
             if(EmployeeBirthdate > date) {
                 errorMessage.push("Ngày sinh nhân viên không hợp lệ");
                 document.querySelector('#employee-birthdate').style.borderColor = "red";
+            }
+
+            if(
+                DepartmentName === "" ||
+                DepartmentName === null ||
+                DepartmentName === undefined
+              ) {
+                errorMessage.push("Làm ơn chọn tên phòng ban");
+                document.querySelector('#employee-dept').style.borderColor = "red";
+            }
+
+            if(
+                PositionName === "" ||
+                PositionName === null ||
+                PositionName === undefined
+              ) {
+                errorMessage.push("Làm ơn chọn tên vị trí");
+                document.querySelector('#employee-position').style.borderColor = "red";
             }
             return errorMessage;
         } catch (error) {

@@ -17,7 +17,6 @@ export default class Employee {
             const response = await fetch(`http://localhost:5017/api/v1/Employees/${string}`);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             this.searchResult = await response.json();
-            console.log(this.searchResult);
             return this.searchResult;
         } catch (error) {
             console.log(error);
@@ -26,7 +25,6 @@ export default class Employee {
 
     async deleteEmployee(string) {
         try {
-            console.log(`http://localhost:5017/api/v1/Employees/${string}`);
             const response = await fetch(`http://localhost:5017/api/v1/Employees/${string}`, {
                 method: 'DELETE'
             });
@@ -39,8 +37,6 @@ export default class Employee {
 
     async addEmployee(employee) {
         try {
-            console.log("doestn esven get here")
-            console.log(JSON.stringify(employee));
             const response = await fetch(`http://localhost:5017/api/v1/Employees`, {
                 method: 'POST',
                 headers: {
