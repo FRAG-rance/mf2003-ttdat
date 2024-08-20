@@ -1,6 +1,7 @@
 import Employee from "./Component/employee.js";
 import Department from "./Component/department.js";
 import Position from "./Component/position.js";
+import { hideLoading, displayLoading } from "./Component/loader.js";
 
 window.onload = function () {
     new employeePage();
@@ -43,6 +44,7 @@ class employeePage {
     }
 
     async tableRefresh() {
+        displayLoading();
         await this.departmentService.getDepartments();
         this.departmentList = this.departmentService.allDepartments;
         
@@ -51,6 +53,7 @@ class employeePage {
         
         await this.employeeService.getEmployees();
         this.tableData = this.employeeService.allEmployees;
+        hideLoading();
     }
 
     showDeleteConfirmation() {
@@ -253,6 +256,7 @@ class employeePage {
     }
 
     async handleAdd() {
+        displayLoading();
         if(!this.generateDialog()) {
             let gender = this.radioChecker();
             let dob = document.querySelector('#employee-birthdate').value;
@@ -279,9 +283,11 @@ class employeePage {
             this.handleDateSubmission(socialDate,tempEmployee, "SocialDate");
             await this.employeeService.addEmployee(tempEmployee);
         }
+        hideLoading();
     }
 
     async handleEdit() {
+        displayLoading();
         this.handleView();
         if(!this.generateDialog()) {
             let gender = this.radioChecker();
@@ -310,9 +316,11 @@ class employeePage {
             await this.employeeService.editEmployee(tempEmployee);
         }
         this.toggleAddForm();
+        hideLoading();
     }
 
     async handleView() {
+        displayLoading();
         this.toggleButton();
         let tmp = await this.employeeService.getEmployee(this.lastSelectedCode);
         if(tmp[0].Gender != null) {
@@ -334,6 +342,7 @@ class employeePage {
         document.querySelector('#employee-dept').value = tmp[0].DepartmentCode;
         document.querySelector('#employee-position').value = tmp[0].PositionCode;
         this.toggleAddForm();
+        hideLoading();
     }
 
     radioChecker() {
@@ -349,6 +358,7 @@ class employeePage {
     initEvents() {
       try {       
         let confirmationDialog = document.querySelector('.del-confirmation');
+        
         //khởi tạo nút add form
         document.querySelector('#table-add-button').addEventListener('click', () => {
             this.currOperation = OPERATION[1];
@@ -449,6 +459,7 @@ class employeePage {
             }
             this.toggleAddForm();
         }.bind(this));
+
 
       } catch(error) {
         console.log(error);

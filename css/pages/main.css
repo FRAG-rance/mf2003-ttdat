@@ -7,6 +7,8 @@
 @import url(../components/content.css);
 @import url(../layout/flex.css);
 @import url(../layout/table.css);
+@import url(../components/loader.css);
+
 * {
     border: 0;
     padding: 0;
