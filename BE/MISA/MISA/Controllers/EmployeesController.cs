@@ -8,6 +8,7 @@ using MISA.Core.Interfaces;
 using MISA.Core.Exceptions;
 using MISA.Core.Services;
 using Misa.Infrastructure.Repository;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MISA.Api.Controllers
 {
@@ -39,7 +40,7 @@ namespace MISA.Api.Controllers
                     userMsg = ex.Message,
                     data = ex.Data,
                 };
-                return BadRequest(response);
+                return StatusCode(400, response);
             }
             catch (Exception ex)
             {
@@ -68,7 +69,7 @@ namespace MISA.Api.Controllers
                     userMsg = ex.Message,
                     data = ex.Data,
                 };
-                return BadRequest(response);
+                return StatusCode(400, response);
             }
             catch (Exception ex)
             {
@@ -87,14 +88,8 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeService.EmployeeInsertionValidation(employee);
-                if (data.Success == true)
-                {
-                    return StatusCode(200, data);
-                }
-                else
-                {
-                    return StatusCode(400, data);
-                }
+                return StatusCode(201, data);
+                
             }
             catch (ValidationExp ex)
             {
@@ -104,7 +99,7 @@ namespace MISA.Api.Controllers
                     userMsg = ex.Message,
                     data = ex.Data,
                 };
-                return BadRequest(response);
+                return StatusCode(400, response);
             }
             catch (Exception ex)
             {
@@ -125,14 +120,8 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeService.EmployeeUpdateiValidation(employee);
-                if (data.Success == true)
-                {
-                    return StatusCode(200, data);
-                }
-                else
-                {
-                    return StatusCode(400, data);
-                }
+                return StatusCode(200, data);
+                
             }
             catch (ValidationExp ex)
             {
@@ -142,7 +131,7 @@ namespace MISA.Api.Controllers
                     userMsg = ex.Message,
                     data = ex.Data,
                 };
-                return BadRequest(response);
+                return StatusCode(400, response);
             }
             catch (Exception ex)
             {
@@ -161,14 +150,7 @@ namespace MISA.Api.Controllers
             try
             {
                 var data = _employeeService.EmployeeDeleteValidation(code);
-                if (data.Success == true)
-                {
-                    return StatusCode(200, data);
-                }
-                else
-                {
-                    return StatusCode(400, data);
-                };
+                return StatusCode(204, data);
             }
             catch (ValidationExp ex)
             {
@@ -178,7 +160,7 @@ namespace MISA.Api.Controllers
                     userMsg = ex.Message,
                     data = ex.Data,
                 };
-                return BadRequest(response);
+                return StatusCode(400, response);
             }
             catch (Exception ex)
             {
