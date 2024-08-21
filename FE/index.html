@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISA</title>
+    <link rel="stylesheet" href="./css/pages/main.css">
+    <link rel="stylesheet" href="./css/pages/form.css">
+</head>
+<body>
+    <div class="del-confirmation dialog hidden">
+        <div class="flex jc-sb">
+            <h2>Thông tin nhân viên</h2>
+            <button class="dialog-close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <div class="confirmation-text">
+            <p>Bạn có chắc chắn muốn xoá dữ liệu nhân viên không?</p>
+        </div>
+        <div class="flex jc-fe">
+            <button class="yes-dialog-btn pri-btn">Có</button>
+            <button class="no-dialog-btn pri-btn">Không</button>
+        </div>
+    </div>
+
+    <div class="error dialog hidden">
+        <div class="flex jc-sb">
+            <h2>Lỗi!!!</h2>
+            <button class="dialog-close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <div class="error-message">
+        </div>
+        <div class="flex jc-fe">
+            <button class="pri-btn">OK</button>
+        </div>
+    </div>
+    
+    <div class="form-container hidden">
+        <div class="flex jc-sb px-1">
+            <h2>Thông tin nhân viên</h2>
+            <button class="form-close-btn">
+                <img src="./assets/icon/close-48.png" alt="" class="icon">
+            </button>
+        </div>
+        <form id="employee-form">
+            <div class="grid">
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-Id">Mã nhân viên *</label>
+                        <input type="text" id="employee-Id" required>
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-name">Họ và tên *</label>
+                        <input type="text" id="employee-name" required>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-birthdate">Ngày sinh</label>
+                        <input type="date" id="employee-birthdate">
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label>Giới tính</label>
+                        <div class="radio-group">
+                            <label><input class="radio-group-label" type="radio" name="gender" value="0"> Nữ</label>
+                            <label><input class="radio-group-label" type="radio" name="gender" value="1"> Nam</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-position" >Vị trí</label>
+                        <select id="employee-position" >
+                            <option value="">Chọn vị trí</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-socials">Số CMTND *</label>
+                        <input type="text" id="employee-socials" required>
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-sDate">Ngày cấp</label>
+                        <input type="date" id="employee-sDate">
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-dept">Phòng ban</label>
+                        <select id="employee-dept">
+                            <option value="">Chọn phòng ban</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="employee-sPlace">Nơi cấp</label>
+                        <input type="text" id="employee-sPlace">
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1">
+                    <div class="px-1">
+                        <label for="employee-address">Địa chỉ</label>
+                        <input type="text" id="employee-address">
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-4">
+                    <div class="px-1">
+                        <label for="employee-phoneNo">ĐT Di động *</label>
+                        <input type="text" id="employee-phoneNo" required>
+                    </div>
+                </div>
+                <div class="grid-u-1-4">
+                    <div class="px-1">
+                        <label for="employee-landlineNo">ĐT Cố định</label>
+                        <input type="text" id="employee-landlineNo">
+                    </div>
+                </div>
+                <div class="grid-u-1-2">
+                    <div class="px-1">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-bankAcc">Tài khoản ngân hàng</label>
+                        <input type="text" id="employee-bankAcc">
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-bankName">Tên ngân hàng</label>
+                        <input type="text" id="employee-bankName">
+                    </div>
+                </div>
+                <div class="grid-u-1-3">
+                    <div class="px-1">
+                        <label for="employee-bankBranch">Chi nhánh</label>
+                        <input type="text" id="employee-bankBranch">
+                    </div>
+                </div>
+            </div>
+            <div class="button-group px-1">
+                <button type="button" class="pri-btn btn-cancel">Hủy</button>
+                <button type="submit" class="pri-btn btn-save">Lưu</button>
+            </div>
+        </form>
+    </div>
+
+    <header class="flex ai-center hidden" id="header">
+        <div class="flex ai-center">
+            <button id="sidebarToggleTop" class="">
+                <a href="#">
+
+                </a>
+                <img src="./assets/img/toggle.png" alt="" class="icon">
+            </button>
+            <img src="./assets/img/cukcuk-logo.png" class="" id="logo" alt="">
+            <select class="dropdown" name="cars" id="cars">
+                <option value="HN">Chi nhánh Hà Nội</option>
+                <option value="SG">Chi nhánh Sài Gòn</option>
+                <option value="HUE">Chi nhánh Huế</option>
+              </select>
+        </div>
+        <div class="flex">
+            <div class="">
+                <a class="flex ai-center" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="profile-name">Mai Quốc Khánh</span>
+                    <img class="img-profile rounded-circle logo" src="./assets/icon/avatar-default.png">
+                </a>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    
+    <div class="flex vh-100">
+        <nav class="flex" id="sidebarNav">
+            <ul>
+                <li class="nav-item">
+                    <a href="#" class="flex ai-center">
+                        <img src="./assets/icon/dashboard.png" alt="" class="icon">
+                        <span class="nav-list-text">Trang chủ</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="flex ai-center">
+                        <img src="./assets/icon/report.png" alt="" class="icon">
+                        <span class="nav-list-text">Báo cáo</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="flex ai-center">
+                        <img src="./assets/icon/dic-employee.png" alt="" class="icon">
+                        <span class="nav-list-text">Nhân viên</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="flex ai-center">
+                        <img src="./assets/icon/setting.png" alt="" class="icon">
+                        <span class="nav-list-text">Cài đặt</span>
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="flex ai-center">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-left"><polyline points="11 17 6 12 11 7"></polyline><polyline points="18 17 13 12 18 7"></polyline></svg>
+                </i>
+                <span class="nav-list-text">Thu gọn</span>
+            </a>
+        </nav>
+        <main>
+            <div class="container">
+                <div class="flex ai-center" id="content-toolbar">
+                    <h1>
+                        Quản lý Nhân viên
+                    </h1>
+                    <button class="pri-btn flex ai-center jc-se" id="table-add-button">
+                        <img src="./assets/icon/add.png" alt="" class="icon">
+                         Thêm mới
+                    </button>
+                </div>
+                
+                
+                <div class="search-bar">
+                    <input id="searchbar" type="text" placeholder="Tìm kiếm theo mã nhân viên, mã phòng ban, mã vị trí">
+                    <button id="search-button">
+                        <img src="./assets/icon/search.png" alt="">
+                    </button>
+                    <button id="search-clear-button">
+                        <img src="./assets/icon/refresh.png" alt="">
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="tableEmp">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Mã nhân viên</th>
+                                <th>Họ và tên</th>
+                                <th>Giới tính</th>
+                                <th>Ngày sinh</th>
+                                <th>Địa chỉ Email</th>
+                                <th>Địa chỉ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                
+                <div class="pagination ai-center">
+                    <span class="total-page"></span>
+                    <div class="left-pagination flex ai-center">
+                        <span>Số bản ghi/trang</span>
+                        <select>
+                            <option>10</option>
+                        </select>
+                        <button id="decrease-page">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+
+                        <button id="increase-page">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </main>
+        <div id="loading-overlay">
+            <div id="loading"></div>
+        </div>
+    </div>
+    <script type="module" src="./js/index.js"></script>
+</body>
+</html>
